@@ -6,4 +6,6 @@ class ColorsManagement {
   static const Color black = Color(0xFF000000);
   static const Color blurBlack = Color(0x4D000000);
   static const Color transparent = Color(0x00ffffff);
+  static const Color backgroundOutButton = Color(0xFF414042);
+  static const Color red = Color(0xB8FF0000);
 }

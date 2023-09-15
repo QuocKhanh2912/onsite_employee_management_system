@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:onsite_employee_management_system/component/button/icon_button_custom.dart';
 import 'package:onsite_employee_management_system/component/button/normal_button_custom.dart';
-import 'package:onsite_employee_management_system/component/text_form_field/text_form_field_custom.dart';
+import 'package:onsite_employee_management_system/component/text_form_field/prefix_text_form_field_custom.dart';
 import 'package:onsite_employee_management_system/utils/assets_management.dart';
 import 'package:onsite_employee_management_system/utils/colors_management.dart';
 import 'package:onsite_employee_management_system/utils/text_style_management.dart';
@@ -45,25 +45,27 @@ class _SignUpPageState extends State<SignUpPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const SizedBox(height: 200,),
+                    const SizedBox(
+                      height: 200,
+                    ),
                     const Text(
                       'Sing Up for Better Experience',
                       style: TextStyleManagement.textNormalBlack24,
                     ),
                     const SizedBox(height: 35),
-                    TextFormFieldCustom(
+                    PrefixTextFormFieldCustom(
                       controller: employeeNameController,
                       hintText: 'Employee Name',
                       prefixImage: AssetsManagement.employeeNameIcon,
                     ),
                     const SizedBox(height: 22),
-                    TextFormFieldCustom(
+                    PrefixTextFormFieldCustom(
                       controller: employeeNameController,
                       hintText: 'Email',
                       prefixImage: AssetsManagement.emailIcon,
                     ),
                     const SizedBox(height: 22),
-                    TextFormFieldCustom(
+                    PrefixTextFormFieldCustom(
                       controller: employeeNameController,
                       hintText: 'Password',
                       prefixImage: AssetsManagement.passwordIcon,
