@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:onsite_employee_management_system/bloc/ci_co_bloc/ci_co_bloc.dart';
 import 'package:onsite_employee_management_system/component/show_current_time/show_current_time.dart';
 import 'package:onsite_employee_management_system/page/home/drawer.dart';
 import 'package:onsite_employee_management_system/routes/route_named.dart';
 import 'package:onsite_employee_management_system/utils/assets_management.dart';
 import 'package:onsite_employee_management_system/utils/colors_management.dart';
+import 'package:onsite_employee_management_system/utils/date_time_management.dart';
 import 'package:onsite_employee_management_system/utils/text_style_management.dart';
 
 import 'component/in_out_button.dart';
@@ -21,53 +24,96 @@ class _LandingPageState extends State<LandingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: InkWell(onTap: () {}, child: const Icon(Icons.arrow_back)),
         backgroundColor: ColorsManagement.green,
       ),
       endDrawer: const DrawerCustom(),
-      body: SafeArea(
-          child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 26),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const SizedBox(
-              height: 15,
-            ),
-            const Text(
-              'Hi Kabir Ahmed!',
-              style: TextStyleManagement.textNormalBlack28,
-            ),
-            const SizedBox(
-              height: 58,
-            ),
-            const ShowCurrentTime(),
-            const SizedBox(
-              height: 75,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                InkWell(
-                  onTap: () {
-                    context.goNamed(RouteNamed.declineAttendancePage);
-                  },
-                  child: const InOutButton(
-                    imageIcon: AssetsManagement.handIn,
-                    name: 'In',
-                    backGroundColor: ColorsManagement.green,
-                  ),
-                ),
-                const InOutButton(
-                  imageIcon: AssetsManagement.handOut,
-                  name: 'Out',
-                  backGroundColor: ColorsManagement.backgroundOutButton,
-                )
-              ],
-            )
-          ],
-        ),
-      )),
+      body: BlocListener<CiCoBloc, CiCoState>(
+        listener: (context, state) {
+          if (state is CheckInSuccessState || state is CheckOutSuccessState) {
+            context.goNamed(RouteNamed.homePage);
+          }
+        },
+        child: SafeArea(
+            child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 26),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const SizedBox(
+                height: 15,
+              ),
+              const Text(
+                'Hi Kabir Ahmed!',
+                style: TextStyleManagement.textNormalBlack28,
+              ),
+              const SizedBox(
+                height: 58,
+              ),
+              const ShowCurrentTime(),
+              const SizedBox(
+                height: 75,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Builder(builder: (context) {
+                    return BlocBuilder<CiCoBloc, CiCoState>(
+                      builder: (context, state) {
+                        return InkWell(
+                          onTap: () {
+                            context.read<CiCoBloc>().add(CheckInEvent(
+                                time: DateTimeManagement.getCurrentTime()));
+                          },
+                          child: const InOutButton(
+                            imageIcon: AssetsManagement.handIn,
+                            name: 'In',
+                            backGroundColor: ColorsManagement.green,
+                          ),
+                        );
+                      },
+                    );
+                  }),
+                  Builder(builder: (context) {
+                    return BlocBuilder<CiCoBloc, CiCoState>(
+                      builder: (context, state) {
+                        if (state is CheckInSuccessState) {
+                          return InkWell(
+                            onTap: () {
+                              context.read<CiCoBloc>().add(CheckOutEvent(
+                                  time: DateTimeManagement.getCurrentTime()));
+                            },
+                            child: const InOutButton(
+                              imageIcon: AssetsManagement.handOut,
+                              name: 'Out',
+                              backGroundColor:
+                                  ColorsManagement.backgroundOutButton,
+                            ),
+                          );
+                        }
+                        return InkWell(
+                          onTap: () {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                    content: Text('Please check in first')));
+                          },
+                          child: const InOutButton(
+                            imageIcon: AssetsManagement.handOut,
+                            name: 'Out',
+                            backGroundColor:
+                                ColorsManagement.backgroundOutButton,
+                          ),
+                        );
+                      },
+                    );
+                  })
+                ],
+              )
+            ],
+          ),
+        )),
+      ),
     );
   }
 }

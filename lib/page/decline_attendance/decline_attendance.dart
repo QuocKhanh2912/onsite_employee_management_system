@@ -5,7 +5,6 @@ import 'package:onsite_employee_management_system/page/home/drawer.dart';
 import 'package:onsite_employee_management_system/utils/assets_management.dart';
 import 'package:onsite_employee_management_system/utils/colors_management.dart';
 import 'package:onsite_employee_management_system/utils/text_style_management.dart';
-import 'package:onsite_employee_management_system/src/locations.dart' as locations;
 
 
 class DeclineAttendancePage extends StatefulWidget {
@@ -16,28 +15,18 @@ class DeclineAttendancePage extends StatefulWidget {
 }
 
 class _DeclineAttendancePageState extends State<DeclineAttendancePage> {
-  final Map<String, Marker> _markers = {};
-  Future<void> _onMapCreated(GoogleMapController controller) async {
-    final googleOffices = await locations.getGoogleOffices();
-    setState(() {
-      _markers.clear();
-      for (final office in googleOffices.offices) {
-        final marker = Marker(
-          markerId: MarkerId(office.name),
-          position: LatLng(office.lat, office.lng),
-          infoWindow: InfoWindow(
-            title: office.name,
-            snippet: office.address,
-          ),
-        );
-        _markers[office.name] = marker;
-      }
-    });
+
+  late GoogleMapController mapController;
+
+  final LatLng _center = const LatLng(13.746519, 107.854663);
+  void onMapCreated(GoogleMapController controller) {
+    mapController = controller;
   }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          leading: InkWell(onTap: () {}, child: const Icon(Icons.arrow_back)),
           backgroundColor: ColorsManagement.green,
         ),
         endDrawer: const DrawerCustom(),
@@ -75,13 +64,11 @@ class _DeclineAttendancePageState extends State<DeclineAttendancePage> {
                    SizedBox(
                     height: 233,
                      child: GoogleMap(
-                       onMapCreated: _onMapCreated,
-                       initialCameraPosition: const CameraPosition(
-                         target: LatLng(13.746420, 107.854950),
-                         zoom: 15,
-                       ),
-                       markers: _markers.values.toSet(),
-                     ),
+                       onMapCreated: onMapCreated,
+                       initialCameraPosition: CameraPosition(
+                         target: _center,
+                         zoom: 15.0,
+                     ),)
                   ),
                   const SizedBox(
                     height: 21,
@@ -102,7 +89,7 @@ class _DeclineAttendancePageState extends State<DeclineAttendancePage> {
                               TextSpan(children: [
                                 TextSpan(
                                   text:
-                                      'Block C, 24/A Tajmahal Road (Ring Road, Near Shia Mosque, Dhaka 1207',
+                                      'Block C, 24/A Tajmahal Road (Ring Road, Near Shia Mosque, Dhaka 1207)',
                                   style: TextStyleManagement.textNormalBlack20,
                                 )
                               ])

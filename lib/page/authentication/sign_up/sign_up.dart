@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:onsite_employee_management_system/component/button/icon_button_custom.dart';
 import 'package:onsite_employee_management_system/component/button/normal_button_custom.dart';
 import 'package:onsite_employee_management_system/component/text_form_field/prefix_text_form_field_custom.dart';
+import 'package:onsite_employee_management_system/routes/route_named.dart';
 import 'package:onsite_employee_management_system/utils/assets_management.dart';
 import 'package:onsite_employee_management_system/utils/colors_management.dart';
 import 'package:onsite_employee_management_system/utils/text_style_management.dart';
@@ -30,6 +32,9 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: InkWell(onTap: () {}, child: const Icon(Icons.arrow_back)),
+      ),
       body: SafeArea(
           child: SingleChildScrollView(
         child: GestureDetector(
@@ -53,22 +58,25 @@ class _SignUpPageState extends State<SignUpPage> {
                       style: TextStyleManagement.textNormalBlack24,
                     ),
                     const SizedBox(height: 35),
-                    PrefixTextFormFieldCustom(
+                    TextFormFieldCustom(
                       controller: employeeNameController,
                       hintText: 'Employee Name',
                       prefixImage: AssetsManagement.employeeNameIcon,
+                      maxLine: 1,
                     ),
                     const SizedBox(height: 22),
-                    PrefixTextFormFieldCustom(
+                    TextFormFieldCustom(
                       controller: employeeNameController,
                       hintText: 'Email',
                       prefixImage: AssetsManagement.emailIcon,
+                      maxLine: 1,
                     ),
                     const SizedBox(height: 22),
-                    PrefixTextFormFieldCustom(
+                    TextFormFieldCustom(
                       controller: employeeNameController,
                       hintText: 'Password',
                       prefixImage: AssetsManagement.passwordIcon,
+                      maxLine: 1,
                     ),
                     const SizedBox(height: 22),
                     NormalButtonCustom(
@@ -78,7 +86,9 @@ class _SignUpPageState extends State<SignUpPage> {
                       colorOutlineButton: ColorsManagement.blurBlack,
                       buttonName: 'Sign Up',
                       textNameStyle: TextStyleManagement.textNormalWhite19,
-                      onPress: () {},
+                      onPress: () {
+                        context.goNamed(RouteNamed.profilePage);
+                      },
                     ),
                     const SizedBox(height: 10),
                     Row(

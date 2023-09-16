@@ -11,12 +11,18 @@ class TextStyleManagement {
 
   static const TextStyle textNormalBlack15 = TextStyle(
       fontWeight: FontWeight.w400, fontSize: 15, color: ColorsManagement.black);
+  static const TextStyle textNormalBlack17 = TextStyle(
+      fontWeight: FontWeight.w400, fontSize: 17, color: ColorsManagement.black);
+  static const TextStyle textNormalBlack18 = TextStyle(
+      fontWeight: FontWeight.w400, fontSize: 18, color: ColorsManagement.black);
   static const TextStyle textNormalBlack19 = TextStyle(
       fontWeight: FontWeight.w400, fontSize: 19, color: ColorsManagement.black);
   static const TextStyle textNormalBlack20 = TextStyle(
       fontWeight: FontWeight.w400, fontSize: 20, color: ColorsManagement.black);
   static const TextStyle textNormalBlack21 = TextStyle(
       fontWeight: FontWeight.w400, fontSize: 21, color: ColorsManagement.black);
+  static const TextStyle textNormalBlack22 = TextStyle(
+      fontWeight: FontWeight.w400, fontSize: 22, color: ColorsManagement.black);
   static const TextStyle textNormalBlack24 = TextStyle(
       fontWeight: FontWeight.w400, fontSize: 24, color: ColorsManagement.black);
   static const TextStyle textNormalBlack26 = TextStyle(
@@ -27,6 +33,9 @@ class TextStyleManagement {
       fontWeight: FontWeight.w700, fontSize: 44, color: ColorsManagement.black);
   static const TextStyle textBoldBlack20 = TextStyle(
       fontWeight: FontWeight.w600, fontSize: 20, color: ColorsManagement.black);
+  static const TextStyle textBoldBlack21 = TextStyle(
+      fontWeight: FontWeight.w700, fontSize: 21, color: ColorsManagement.black);
+
 
   static const TextStyle textBlurBlack19 = TextStyle(
       fontWeight: FontWeight.w400,

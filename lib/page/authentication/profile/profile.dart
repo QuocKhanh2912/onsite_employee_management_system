@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:onsite_employee_management_system/component/button/normal_button_custom.dart';
+import 'package:onsite_employee_management_system/component/text_form_field/prefix_text_form_field_custom.dart';
 import 'package:onsite_employee_management_system/utils/assets_management.dart';
 import 'package:onsite_employee_management_system/utils/colors_management.dart';
 import 'package:onsite_employee_management_system/utils/text_style_management.dart';
-
-import '../../../component/text_form_field/text_form_field_custom.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -33,6 +32,7 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(leading: InkWell(onTap: () {}, child: const Icon(Icons.arrow_back)),),
       body: SafeArea(
         child: GestureDetector(
           onTap: () {
@@ -61,29 +61,36 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                   TextFormFieldCustom(
                       hintText: 'Designation',
-                      controller: designationController),
+                      controller: designationController,
+                      maxLine: 1),
                   const SizedBox(
                     height: 22,
                   ),
                   TextFormFieldCustom(
-                      hintText: 'Department', controller: departmentController),
+                      hintText: 'Department',
+                      controller: departmentController,
+                      maxLine: 1),
                   const SizedBox(
                     height: 22,
                   ),
                   TextFormFieldCustom(
-                      hintText: 'Team Name', controller: teamNameController),
+                      hintText: 'Team Name',
+                      controller: teamNameController,
+                      maxLine: 1),
                   const SizedBox(
                     height: 22,
                   ),
                   TextFormFieldCustom(
                       hintText: 'Supervised By',
-                      controller: supervisedByController),
+                      controller: supervisedByController,
+                      maxLine: 1),
                   const SizedBox(
                     height: 22,
                   ),
                   TextFormFieldCustom(
                       hintText: 'Designation',
-                      controller: designationController),
+                      controller: designationController,
+                      maxLine: 1),
                   const SizedBox(
                     height: 22,
                   ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:onsite_employee_management_system/page/home/component/item_drawer.dart';
+import 'package:onsite_employee_management_system/routes/route_named.dart';
 import 'package:onsite_employee_management_system/utils/assets_management.dart';
 import 'package:onsite_employee_management_system/utils/colors_management.dart';
 import 'package:onsite_employee_management_system/utils/text_style_management.dart';
@@ -31,41 +33,46 @@ class DrawerCustom extends StatelessWidget {
                       )
                     ]),
               ),
-              const Expanded(
+              Expanded(
                   child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                    SizedBox(height: 31),
-                    ItemDrawer(
-                      imageIcon: AssetsManagement.homeIcon,
-                      itemName: 'Home',
+                    const SizedBox(height: 31),
+                    InkWell(
+                      onTap: () {
+                        context.goNamed(RouteNamed.landingPage);
+                      },
+                      child: const ItemDrawer(
+                        imageIcon: AssetsManagement.homeIcon,
+                        itemName: 'Home',
+                      ),
                     ),
-                    SizedBox(height: 15),
-                    ItemDrawer(
+                    const SizedBox(height: 15),
+                    const ItemDrawer(
                       imageIcon: AssetsManagement.issuesIcon,
                       itemName: 'Issues',
                     ),
-                    SizedBox(height: 15),
-                    ItemDrawer(
+                    const SizedBox(height: 15),
+                    const ItemDrawer(
                       imageIcon: AssetsManagement.incidentIcon,
                       itemName: 'Incident',
                     ),
-                    SizedBox(height: 15),
-                    ItemDrawer(
+                    const SizedBox(height: 15),
+                    const ItemDrawer(
                       imageIcon: AssetsManagement.leaveIcon,
                       itemName: 'Leave',
                     ),
-                    SizedBox(height: 15),
-                    ItemDrawer(
+                    const SizedBox(height: 15),
+                    const ItemDrawer(
                       imageIcon: AssetsManagement.changePasswordIcon,
                       itemName: 'Change Password',
                     ),
-                    SizedBox(height: 15),
-                    ItemDrawer(
+                    const SizedBox(height: 15),
+                    const ItemDrawer(
                       imageIcon: AssetsManagement.logoutIcon,
                       itemName: 'Logout',
                     ),
-                    SizedBox(height: 15),
+                    const SizedBox(height: 15),
                   ]))
             ],
           )),
