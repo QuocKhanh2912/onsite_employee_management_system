@@ -15,7 +15,8 @@ class LocationModal {
   static LocationModal nbr = LocationModal(
       locationId: 01,
       locationName: 'NBR',
-      locationAdd: 'Block C, 24/A Tajmahal Road (Ring Road, Near Shia Mosque, Dhaka 1207',
+      locationAdd:
+          'Block C, 24/A Tajmahal Road (Ring Road, Near Shia Mosque, Dhaka 1207',
       locationLatLng: const LatLng(13.746569, 107.854658));
   static LocationModal cch = LocationModal(
       locationId: 01,
@@ -25,17 +26,20 @@ class LocationModal {
   static LocationModal bdbl = LocationModal(
       locationId: 01,
       locationName: 'BDBL',
-      locationAdd: 'PLOT NO.2, HOTEL KP INN, AIRPORT ROAD, Ajni Square, Samarth Nagar East',
+      locationAdd:
+          'PLOT NO.2, HOTEL KP INN, AIRPORT ROAD, Ajni Square, Samarth Nagar East',
       locationLatLng: const LatLng(15.746569, 107.854658));
   static LocationModal pksf = LocationModal(
       locationId: 01,
       locationName: 'PKSF',
-      locationAdd: '001, Ground Floor, Himalaya Harmony Apartments, Near, Aath Rasta Chowk',
+      locationAdd:
+          '001, Ground Floor, Himalaya Harmony Apartments, Near, Aath Rasta Chowk',
       locationLatLng: const LatLng(16.746569, 107.854658));
   static LocationModal bb = LocationModal(
       locationId: 01,
       locationName: 'BB',
-      locationAdd: 'PLOT NO.2, HOTEL KP INN, AIRPORT ROAD, Ajni Square, Samarth Nagar East',
+      locationAdd:
+          'PLOT NO.2, HOTEL KP INN, AIRPORT ROAD, Ajni Square, Samarth Nagar East',
       locationLatLng: const LatLng(17.746569, 107.854658));
   static LocationModal scb = LocationModal(
       locationId: 01,
@@ -50,12 +54,14 @@ class LocationModal {
   static LocationModal jbl = LocationModal(
       locationId: 01,
       locationName: 'JBL',
-      locationAdd: 'Wardha Rd, opposite Airport, New Manish Nagar, Sonegaon, Nagpur',
+      locationAdd:
+          'Wardha Rd, opposite Airport, New Manish Nagar, Sonegaon, Nagpur',
       locationLatLng: const LatLng(17.746569, 107.854658));
   static LocationModal dch = LocationModal(
       locationId: 01,
       locationName: 'DCH',
-      locationAdd: 'Plot no.270 Beltarodi Bus Stop, Beltarodi Rd, Beltarodi, Nagpur',
+      locationAdd:
+          'Plot no.270 Beltarodi Bus Stop, Beltarodi Rd, Beltarodi, Nagpur',
       locationLatLng: const LatLng(17.746569, 107.854658));
   static LocationModal ndc = LocationModal(
       locationId: 01,
@@ -94,4 +100,24 @@ class LocationModal {
     ndc.locationName,
     shuvastu.locationName
   ];
+
+  Map<String, dynamic> toJson() {
+    return {
+      'locationId': locationId,
+      'locationName': locationName,
+      'locationAdd': locationAdd,
+      'locationLatLng': locationLatLng,
+    };
+  }
+
+  static LocationModal fromJson(Map<String, dynamic> json) {
+    final locationLatLngList = json['locationLatLng'] as List<dynamic>;
+    final double latitude = locationLatLngList[0];
+    final double longitude = locationLatLngList[1];
+    return LocationModal(
+        locationAdd: json['locationAdd'],
+        locationId: json['locationId'],
+        locationLatLng: LatLng(latitude, longitude),
+        locationName: json['locationName']);
+  }
 }
