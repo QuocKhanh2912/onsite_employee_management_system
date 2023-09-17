@@ -14,7 +14,7 @@ import '../page/authentication/sign_up/sign_up.dart';
 
 class RoutesManagement {
   static final routes =
-      GoRouter(initialLocation: '/${RouteNamed.landingPage}', routes: [
+      GoRouter(initialLocation: '/', routes: [
     GoRoute(
       name: RouteNamed.splashPage,
       path: '/',

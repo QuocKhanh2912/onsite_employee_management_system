@@ -40,7 +40,7 @@ class DrawerCustom extends StatelessWidget {
                     const SizedBox(height: 31),
                     InkWell(
                       onTap: () {
-                        context.goNamed(RouteNamed.landingPage);
+                        context.pushNamed(RouteNamed.landingPage);
                       },
                       child: const ItemDrawer(
                         imageIcon: AssetsManagement.homeIcon,

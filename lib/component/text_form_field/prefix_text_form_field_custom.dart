@@ -7,12 +7,14 @@ class TextFormFieldCustom extends StatelessWidget {
       required this.controller,
       required this.hintText,
       this.prefixImage,
-      required this.maxLine});
+      required this.maxLine,
+      required this.requiredIcon});
 
   final TextEditingController controller;
   final String? prefixImage;
   final String hintText;
   final int maxLine;
+  final bool requiredIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -22,15 +24,23 @@ class TextFormFieldCustom extends StatelessWidget {
         controller: controller,
         style: TextStyleManagement.textNormalBlack19,
         decoration: InputDecoration(
-          prefixIcon: prefixImage == null
-              ? null
-              : Image.asset(
-                  prefixImage!,
+            prefixIcon: prefixImage == null
+                ? null
+                : Image.asset(
+                    prefixImage!,
+                  ),
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(5)),
+            label: RichText(
+              text: TextSpan(children: [
+                TextSpan(
+                  text: hintText,
+                  style: TextStyleManagement.textBlurBlack19,
                 ),
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(5)),
-          hintText: hintText,
-          hintStyle: TextStyleManagement.textBlurBlack19,
-        ),
+                TextSpan(
+                    text: requiredIcon ? '*' : '',
+                    style: TextStyleManagement.textNormalRed18)
+              ]),
+            )),
       ),
     );
   }

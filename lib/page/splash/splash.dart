@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:onsite_employee_management_system/routes/route_named.dart';
+import 'package:onsite_employee_management_system/service/geolocation/determine_position.dart';
 import 'package:onsite_employee_management_system/utils/assets_management.dart';
 import 'package:onsite_employee_management_system/utils/colors_management.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -27,6 +28,7 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
       });
     linearController
         .forward()
+        .then((value) => GeolocationService.determinePosition())
         .then((value) => _splashBloc.add(SplashLoadingEvent()));
     super.initState();
   }
@@ -54,14 +56,16 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const SizedBox(height: 100,),
+                  const SizedBox(
+                    height: 100,
+                  ),
                   Image.asset(AssetsManagement.bigLogo),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 40),
                     child: Container(
                       height: 6,
-                      decoration:
-                          BoxDecoration(borderRadius: BorderRadius.circular(35)),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(35)),
                       child: LinearProgressIndicator(
                           value: linearController.value,
                           backgroundColor: ColorsManagement.white,

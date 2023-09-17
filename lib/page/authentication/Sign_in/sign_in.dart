@@ -35,65 +35,69 @@ class _SignInPageState extends State<SignInPage> {
       appBar: AppBar(
           leading: InkWell(
               onTap: () {
-                context.pop(context);
+                context.pop();
               },
               child: const Icon(Icons.arrow_back))),
       body: SafeArea(
-          child: WillPopScope(
-        onWillPop: () async => false,
-        child: GestureDetector(
-          onTap: () {
-            FocusScope.of(context).unfocus();
-          },
-          child: SingleChildScrollView(
-            child: Form(
-              key: keySignUp,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 24),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const SizedBox(height: 90),
-                    const Text(
-                      'Welcome Back!',
-                      style: TextStyleManagement.textNormalBlack24,
-                    ),
-                    const SizedBox(height: 22),
-                    Image.asset(AssetsManagement.welcomeBack),
-                    const SizedBox(height: 26),
-                    TextFormFieldCustom(
+          child: GestureDetector(
+        onTap: () {
+          FocusScope.of(context).unfocus();
+        },
+        child: SingleChildScrollView(
+          child: Form(
+            key: keySignUp,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const SizedBox(height: 90),
+                  const Text(
+                    'Welcome Back!',
+                    style: TextStyleManagement.textNormalBlack24,
+                  ),
+                  const SizedBox(height: 22),
+                  Image.asset(AssetsManagement.welcomeBack),
+                  const SizedBox(height: 26),
+                  TextFormFieldCustom(
                       controller: employeeNameController,
                       hintText: 'Email',
                       maxLine: 1,
-                    ),
-                    const SizedBox(height: 22),
-                    TextFormFieldCustom(
-                      controller: employeeNameController,
-                      hintText: 'Password',
-                      maxLine: 1,
-                    ),
-                    const SizedBox(height: 10),
-                    const Row(
-                      children: [
-                        Text(
-                          'Forgot Password?',
-                          style: TextStyleManagement.textNormalGreen15,
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 10),
-                    NormalButtonCustom(
-                      widthButton: double.infinity,
-                      heightButton: 50,
-                      colorBackGroundButton: ColorsManagement.green,
-                      colorOutlineButton: ColorsManagement.blurBlack,
-                      buttonName: 'Sign in',
-                      textNameStyle: TextStyleManagement.textNormalWhite19,
-                      onPress: () {context.goNamed(RouteNamed.landingPage);},
-                    ),
-                    const SizedBox(height: 10),
-                    Row(
+                      requiredIcon: true),
+                  const SizedBox(height: 22),
+                  TextFormFieldCustom(
+                    controller: employeeNameController,
+                    hintText: 'Password',
+                    requiredIcon: true,
+                    maxLine: 1,
+                  ),
+                  const SizedBox(height: 10),
+                  const Row(
+                    children: [
+                      Text(
+                        'Forgot Password?',
+                        style: TextStyleManagement.textNormalGreen15,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 10),
+                  NormalButtonCustom(
+                    widthButton: double.infinity,
+                    heightButton: 50,
+                    colorBackGroundButton: ColorsManagement.green,
+                    colorOutlineButton: ColorsManagement.blurBlack,
+                    buttonName: 'Sign in',
+                    textNameStyle: TextStyleManagement.textNormalWhite19,
+                    onPress: () {
+                      context.pushNamed(RouteNamed.homePage);
+                    },
+                  ),
+                  const SizedBox(height: 10),
+                  InkWell(onTap: () {
+                    context.pushNamed(RouteNamed.signUpPage);
+                  },
+                    child: Row(
                       children: [
                         RichText(
                             text: const TextSpan(children: [
@@ -106,18 +110,18 @@ class _SignInPageState extends State<SignInPage> {
                         ])),
                       ],
                     ),
-                    const SizedBox(height: 10),
-                    IconButtonCustom(
-                      textNameStyle: TextStyleManagement.textNormalBlack19,
-                      widthButton: double.infinity,
-                      heightButton: 50,
-                      buttonName: 'Continue With Google',
-                      backGroundButton: ColorsManagement.white,
-                      iconButton: AssetsManagement.googleLogo,
-                      onPress: () {},
-                    )
-                  ],
-                ),
+                  ),
+                  const SizedBox(height: 10),
+                  IconButtonCustom(
+                    textNameStyle: TextStyleManagement.textNormalBlack19,
+                    widthButton: double.infinity,
+                    heightButton: 50,
+                    buttonName: 'Continue With Google',
+                    backGroundButton: ColorsManagement.white,
+                    iconButton: AssetsManagement.googleLogo,
+                    onPress: () {},
+                  )
+                ],
               ),
             ),
           ),

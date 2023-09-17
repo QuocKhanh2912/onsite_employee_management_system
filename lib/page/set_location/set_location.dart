@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:onsite_employee_management_system/component/button/normal_button_custom.dart';
 import 'package:onsite_employee_management_system/component/show_current_time/show_current_time.dart';
 import 'package:onsite_employee_management_system/component/text_form_field/prefix_text_form_field_custom.dart';
-import 'package:onsite_employee_management_system/page/home/drawer.dart';
+import 'package:onsite_employee_management_system/component/drawer/drawer.dart';
 import 'package:onsite_employee_management_system/page/set_location/select_location_drop_down.dart';
 import 'package:onsite_employee_management_system/utils/assets_management.dart';
 import 'package:onsite_employee_management_system/utils/colors_management.dart';
@@ -76,7 +76,7 @@ class _SetLocationPageState extends State<SetLocationPage> {
                 TextFormFieldCustom(
                   controller: descriptionController,
                   hintText: 'Description',
-                  maxLine: 2,
+                  maxLine: 2,requiredIcon: false
                 ),
                 const SizedBox(
                   height: 23,

@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:onsite_employee_management_system/bloc/ci_co_bloc/ci_co_bloc.dart';
 import 'package:onsite_employee_management_system/component/show_current_time/show_current_time.dart';
-import 'package:onsite_employee_management_system/page/home/drawer.dart';
+import 'package:onsite_employee_management_system/component/drawer/drawer.dart';
 import 'package:onsite_employee_management_system/routes/route_named.dart';
 import 'package:onsite_employee_management_system/utils/assets_management.dart';
 import 'package:onsite_employee_management_system/utils/colors_management.dart';

@@ -42,6 +42,8 @@ dependencies:
   http: ^1.1.0
   json_serializable: ^6.7.1
   dropdown_button2: ^2.3.9
+  geolocator: ^10.0.1
+  shared_preferences: ^2.2.1
 
 dev_dependencies:
   flutter_test:

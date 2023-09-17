@@ -33,7 +33,11 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: InkWell(onTap: () {}, child: const Icon(Icons.arrow_back)),
+        leading: InkWell(
+            onTap: () {
+              context.pop();
+            },
+            child: const Icon(Icons.arrow_back)),
       ),
       body: SafeArea(
           child: SingleChildScrollView(
@@ -59,25 +63,25 @@ class _SignUpPageState extends State<SignUpPage> {
                     ),
                     const SizedBox(height: 35),
                     TextFormFieldCustom(
-                      controller: employeeNameController,
-                      hintText: 'Employee Name',
-                      prefixImage: AssetsManagement.employeeNameIcon,
-                      maxLine: 1,
-                    ),
+                        controller: employeeNameController,
+                        hintText: 'Employee Name',
+                        prefixImage: AssetsManagement.employeeNameIcon,
+                        maxLine: 1,
+                        requiredIcon: false),
                     const SizedBox(height: 22),
                     TextFormFieldCustom(
-                      controller: employeeNameController,
-                      hintText: 'Email',
-                      prefixImage: AssetsManagement.emailIcon,
-                      maxLine: 1,
-                    ),
+                        controller: employeeNameController,
+                        hintText: 'Email',
+                        prefixImage: AssetsManagement.emailIcon,
+                        maxLine: 1,
+                        requiredIcon: false),
                     const SizedBox(height: 22),
                     TextFormFieldCustom(
-                      controller: employeeNameController,
-                      hintText: 'Password',
-                      prefixImage: AssetsManagement.passwordIcon,
-                      maxLine: 1,
-                    ),
+                        controller: employeeNameController,
+                        hintText: 'Password',
+                        prefixImage: AssetsManagement.passwordIcon,
+                        maxLine: 1,
+                        requiredIcon: false),
                     const SizedBox(height: 22),
                     NormalButtonCustom(
                       widthButton: double.infinity,
@@ -91,18 +95,23 @@ class _SignUpPageState extends State<SignUpPage> {
                       },
                     ),
                     const SizedBox(height: 10),
-                    Row(
-                      children: [
-                        RichText(
-                            text: const TextSpan(children: [
-                          TextSpan(
-                              text: 'Already have an account? ',
-                              style: TextStyleManagement.textNormalBlack15),
-                          TextSpan(
-                              text: 'Sign In',
-                              style: TextStyleManagement.textNormalGreen15)
-                        ])),
-                      ],
+                    InkWell(
+                      onTap: () {
+                        context.pushNamed(RouteNamed.signInPage);
+                      },
+                      child: Row(
+                        children: [
+                          RichText(
+                              text: const TextSpan(children: [
+                            TextSpan(
+                                text: 'Already have an account? ',
+                                style: TextStyleManagement.textNormalBlack15),
+                            TextSpan(
+                                text: 'Sign In',
+                                style: TextStyleManagement.textNormalGreen15)
+                          ])),
+                        ],
+                      ),
                     ),
                     const SizedBox(height: 10),
                     IconButtonCustom(

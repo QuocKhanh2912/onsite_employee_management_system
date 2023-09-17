@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:onsite_employee_management_system/component/show_current_time/show_current_time.dart';
-import 'package:onsite_employee_management_system/page/home/drawer.dart';
+import 'package:onsite_employee_management_system/component/drawer/drawer.dart';
 import 'package:onsite_employee_management_system/utils/assets_management.dart';
 import 'package:onsite_employee_management_system/utils/colors_management.dart';
 import 'package:onsite_employee_management_system/utils/text_style_management.dart';
