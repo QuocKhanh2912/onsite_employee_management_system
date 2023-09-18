@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:onsite_employee_management_system/component/dialog/dialog_custom.dart';
 import 'package:onsite_employee_management_system/page/home/component/item_drawer.dart';
 import 'package:onsite_employee_management_system/routes/route_named.dart';
+import 'package:onsite_employee_management_system/service/local/local_service.dart';
 import 'package:onsite_employee_management_system/utils/assets_management.dart';
 import 'package:onsite_employee_management_system/utils/colors_management.dart';
 import 'package:onsite_employee_management_system/utils/text_style_management.dart';
@@ -40,7 +42,7 @@ class DrawerCustom extends StatelessWidget {
                     const SizedBox(height: 31),
                     InkWell(
                       onTap: () {
-                        context.pushNamed(RouteNamed.landingPage);
+                        context.pushNamed(RouteNamed.homePage);
                       },
                       child: const ItemDrawer(
                         imageIcon: AssetsManagement.homeIcon,
@@ -48,9 +50,18 @@ class DrawerCustom extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 15),
-                    const ItemDrawer(
-                      imageIcon: AssetsManagement.issuesIcon,
-                      itemName: 'Issues',
+                    InkWell(
+                      onTap: () {
+                        showDialog(
+                          context: context,
+                          builder: (context) =>
+                              DialogCustom.dialogToChangeLocation(context),
+                        );
+                      },
+                      child: const ItemDrawer(
+                        imageIcon: AssetsManagement.issuesIcon,
+                        itemName: 'Issues',
+                      ),
                     ),
                     const SizedBox(height: 15),
                     const ItemDrawer(
@@ -73,6 +84,19 @@ class DrawerCustom extends StatelessWidget {
                       itemName: 'Logout',
                     ),
                     const SizedBox(height: 15),
+                    InkWell(
+                      onTap: () async {
+                        LocalService.saveTimeCheckIn(time: '--:--').then(
+                            (value) => LocalService.saveTimeCheckOutAndWorking(
+                                    time: '--:--')
+                                .then((value) =>
+                                    context.pushNamed(RouteNamed.homePage)));
+                      },
+                      child: const ItemDrawer(
+                        imageIcon: AssetsManagement.logoutIcon,
+                        itemName: 'Reset time Value',
+                      ),
+                    ),
                   ]))
             ],
           )),

@@ -2,7 +2,6 @@ import 'package:go_router/go_router.dart';
 import 'package:onsite_employee_management_system/page/authentication/Sign_in/sign_in.dart';
 import 'package:onsite_employee_management_system/page/authentication/authentication_option/authentication_option.dart';
 import 'package:onsite_employee_management_system/page/authentication/profile/profile.dart';
-import 'package:onsite_employee_management_system/page/decline_attendance/decline_attendance.dart';
 import 'package:onsite_employee_management_system/page/home/home.dart';
 import 'package:onsite_employee_management_system/page/landing/landing.dart';
 import 'package:onsite_employee_management_system/page/set_location/set_location.dart';
@@ -49,11 +48,6 @@ class RoutesManagement {
       name: RouteNamed.landingPage,
       path: '/${RouteNamed.landingPage}',
       builder: (context, state) => const LandingPage(),
-    ),
-    GoRoute(
-      name: RouteNamed.declineAttendancePage,
-      path: '/${RouteNamed.declineAttendancePage}',
-      builder: (context, state) => const DeclineAttendancePage(),
     ),
     GoRoute(
       name: RouteNamed.setPreferLocationPage,

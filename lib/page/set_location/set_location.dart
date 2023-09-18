@@ -5,6 +5,7 @@ import 'package:onsite_employee_management_system/component/button/normal_button
 import 'package:onsite_employee_management_system/component/drawer/drawer.dart';
 import 'package:onsite_employee_management_system/component/show_current_time/show_current_time.dart';
 import 'package:onsite_employee_management_system/component/text_form_field/prefix_text_form_field_custom.dart';
+import 'package:onsite_employee_management_system/page/landing/bloc/ci_co_bloc/ci_co_bloc.dart';
 import 'package:onsite_employee_management_system/page/set_location/select_location_drop_down.dart';
 import 'package:onsite_employee_management_system/routes/route_named.dart';
 import 'package:onsite_employee_management_system/utils/assets_management.dart';
@@ -96,23 +97,28 @@ class _SetLocationPageState extends State<SetLocationPage> {
                     const SizedBox(
                       height: 23,
                     ),
-                    BlocBuilder<SetLocationBloc, SetLocationState>(
+                    BlocBuilder<CiCoBloc, CiCoState>(
                       builder: (context, state) {
-                        return NormalButtonCustom(
-                          colorOutlineButton: ColorsManagement.blurBlack,
-                          colorBackGroundButton: Colors.green,
-                          textNameStyle: TextStyleManagement.textNormalWhite19,
-                          widthButton: double.infinity,
-                          heightButton: 50,
-                          buttonName: 'Submit',
-                          onPress: () {
-                            formKey.currentState!.validate();
-                            if (formKey.currentState!.validate()) {
-                              formKey.currentState!.save();
-                              context.read<SetLocationBloc>().add(
-                                  SaveLocationToLocal(
-                                      locationName: selectController.text));
-                            }
+                        return BlocBuilder<SetLocationBloc, SetLocationState>(
+                          builder: (context, state) {
+                            return NormalButtonCustom(
+                              colorOutlineButton: ColorsManagement.blurBlack,
+                              colorBackGroundButton: Colors.green,
+                              textNameStyle:
+                                  TextStyleManagement.textNormalWhite19,
+                              widthButton: double.infinity,
+                              heightButton: 50,
+                              buttonName: 'Submit',
+                              onPress: () {
+                                formKey.currentState!.validate();
+                                if (formKey.currentState!.validate()) {
+                                  formKey.currentState!.save();
+                                  context.read<SetLocationBloc>().add(
+                                      SaveLocationToLocal(
+                                          locationName: selectController.text));
+                                }
+                              },
+                            );
                           },
                         );
                       },

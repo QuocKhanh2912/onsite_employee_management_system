@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:onsite_employee_management_system/bloc/ci_co_bloc/ci_co_bloc.dart';
-import 'package:onsite_employee_management_system/component/show_current_time/show_current_time.dart';
 import 'package:onsite_employee_management_system/component/drawer/drawer.dart';
+import 'package:onsite_employee_management_system/component/show_current_time/show_current_time.dart';
 import 'package:onsite_employee_management_system/routes/route_named.dart';
 import 'package:onsite_employee_management_system/utils/assets_management.dart';
 import 'package:onsite_employee_management_system/utils/colors_management.dart';
-import 'package:onsite_employee_management_system/utils/date_time_management.dart';
 import 'package:onsite_employee_management_system/utils/text_style_management.dart';
 
+import 'bloc/ci_co_bloc/ci_co_bloc.dart';
 import 'component/in_out_button.dart';
 
 class LandingPage extends StatefulWidget {
@@ -30,8 +29,17 @@ class _LandingPageState extends State<LandingPage> {
       endDrawer: const DrawerCustom(),
       body: BlocListener<CiCoBloc, CiCoState>(
         listener: (context, state) {
-          if (state is CheckInSuccessState || state is CheckOutSuccessState) {
-            context.goNamed(RouteNamed.homePage);
+          if (state is CheckInSuccessState ||
+              state is CheckOutSuccessState ||
+              state is FarAwayLocationState) {
+            context.pushNamed(RouteNamed.homePage);
+          }
+          if (state is CheckedInState) {
+            context.read<CiCoBloc>().add(CheckOutEvent());
+          }
+          if (state is NotCheckedInState) {
+            ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('Please check in first')));
           }
         },
         child: SafeArea(
@@ -63,8 +71,7 @@ class _LandingPageState extends State<LandingPage> {
                       builder: (context, state) {
                         return InkWell(
                           onTap: () {
-                            context.read<CiCoBloc>().add(CheckInEvent(
-                                time: DateTimeManagement.getCurrentTime()));
+                            context.read<CiCoBloc>().add(CheckInEvent());
                           },
                           child: const InOutButton(
                             imageIcon: AssetsManagement.handIn,
@@ -78,25 +85,9 @@ class _LandingPageState extends State<LandingPage> {
                   Builder(builder: (context) {
                     return BlocBuilder<CiCoBloc, CiCoState>(
                       builder: (context, state) {
-                        if (state is CheckInSuccessState) {
-                          return InkWell(
-                            onTap: () {
-                              context.read<CiCoBloc>().add(CheckOutEvent(
-                                  time: DateTimeManagement.getCurrentTime()));
-                            },
-                            child: const InOutButton(
-                              imageIcon: AssetsManagement.handOut,
-                              name: 'Out',
-                              backGroundColor:
-                                  ColorsManagement.backgroundOutButton,
-                            ),
-                          );
-                        }
                         return InkWell(
                           onTap: () {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                    content: Text('Please check in first')));
+                            context.read<CiCoBloc>().add(CheckInYetEvent());
                           },
                           child: const InOutButton(
                             imageIcon: AssetsManagement.handOut,
@@ -107,7 +98,7 @@ class _LandingPageState extends State<LandingPage> {
                         );
                       },
                     );
-                  })
+                  }),
                 ],
               )
             ],

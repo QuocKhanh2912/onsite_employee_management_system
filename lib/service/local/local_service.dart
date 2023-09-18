@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:onsite_employee_management_system/data/location_modal.dart';
+import 'package:onsite_employee_management_system/utils/date_time_management.dart';
 import 'package:onsite_employee_management_system/utils/key_management.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -22,7 +23,8 @@ class LocalService {
     return LocationModal.fromJson(jsonDecode(locationInfo));
   }
 
-  static LocationModal getLocationFromLocationName({required String locationName}) {
+  static LocationModal getLocationFromLocationName(
+      {required String locationName}) {
     LocationModal? locationModal = LocationModal.locationList.firstWhere(
       (location) => location.locationName == locationName,
       orElse: () => LocationModal(
@@ -33,5 +35,40 @@ class LocalService {
       ),
     );
     return locationModal;
+  }
+
+  static Future<void> saveTimeCheckIn({required String time}) async {
+    var prefs = await SharedPreferences.getInstance();
+    prefs.setString(KeyManagement.timeCheckInKey, time);
+  }
+
+  static Future<void> saveTimeCheckOutAndWorking({required String time}) async {
+    var prefs = await SharedPreferences.getInstance();
+    if (time == '--:--') {
+      prefs.setString(KeyManagement.timeCheckOutKey, time);
+      prefs.setString(KeyManagement.timeWorkingKey, '');
+    }
+    else{
+      prefs.setString(KeyManagement.timeCheckOutKey, time);
+      var checkInTime = prefs.getString(KeyManagement.timeCheckInKey);
+      var timeWorking = DateTimeManagement.calculateWorkingTime(
+          checkInTime: checkInTime!, checkOutTime: time);
+      prefs.setString(KeyManagement.timeWorkingKey, timeWorking);
+    }
+  }
+
+  static Future<String> getTimeCheckIn() async {
+    var prefs = await SharedPreferences.getInstance();
+    return prefs.getString(KeyManagement.timeCheckInKey) ?? '';
+  }
+
+  static Future<String> getTimeCheckOut() async {
+    var prefs = await SharedPreferences.getInstance();
+    return prefs.getString(KeyManagement.timeCheckOutKey) ?? '';
+  }
+
+  static Future<String> getTimeWorking() async {
+    var prefs = await SharedPreferences.getInstance();
+    return prefs.getString(KeyManagement.timeWorkingKey) ?? '';
   }
 }

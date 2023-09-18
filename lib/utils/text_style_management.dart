@@ -8,6 +8,8 @@ class TextStyleManagement {
       fontWeight: FontWeight.w400, fontSize: 21, color: ColorsManagement.white);
   static const TextStyle textBoldWhite24 = TextStyle(
       fontWeight: FontWeight.w700, fontSize: 24, color: ColorsManagement.white);
+  static const TextStyle textBoldWhite19 = TextStyle(
+      fontWeight: FontWeight.w700, fontSize: 19, color: ColorsManagement.white);
 
   static const TextStyle textNormalBlack15 = TextStyle(
       fontWeight: FontWeight.w400, fontSize: 15, color: ColorsManagement.black);
@@ -36,10 +38,10 @@ class TextStyleManagement {
   static const TextStyle textBoldBlack21 = TextStyle(
       fontWeight: FontWeight.w700, fontSize: 21, color: ColorsManagement.black);
 
-
   static const TextStyle textBlurBlack19 = TextStyle(
       fontWeight: FontWeight.w400,
-      fontSize: 19,height: 1.1,
+      fontSize: 19,
+      height: 1.1,
       color: ColorsManagement.blurBlack);
 
   static const TextStyle textNormalGreen19 = TextStyle(
@@ -50,6 +52,8 @@ class TextStyleManagement {
   static const TextStyle textNormalRed18 = TextStyle(
       fontWeight: FontWeight.w400, fontSize: 18, color: ColorsManagement.red);
   static const TextStyle textUnderlineRed18 = TextStyle(
-      fontWeight: FontWeight.w400, fontSize: 18, color: ColorsManagement.red,decoration: TextDecoration.underline );
-
+      fontWeight: FontWeight.w400,
+      fontSize: 18,
+      color: ColorsManagement.red,
+      decoration: TextDecoration.underline);
 }

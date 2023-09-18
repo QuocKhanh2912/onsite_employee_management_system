@@ -9,13 +9,18 @@ part 'home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   HomeBloc() : super(HomeInitial()) {
-    on<GetCurrentLocationEvent>(_getCurrentLocationEvent);
+    on<GetInfoHomeEvent>(_getTimeValueEvent);
   }
 
-  _getCurrentLocationEvent(
-      GetCurrentLocationEvent event, Emitter<HomeState> emit) async {
-    emit(GetCurrentLocationLoading());
+  _getTimeValueEvent(GetInfoHomeEvent event, Emitter<HomeState> emit) async {
+    var checkInTime = await LocalService.getTimeCheckIn();
+    var checkOutTime = await LocalService.getTimeCheckOut();
+    var workingTime = await LocalService.getTimeWorking();
     var currentLocation = await LocalService.getCurrentLocation();
-    emit(GetCurrentLocationSuccess(currentLocation: currentLocation));
+    emit(GetInfoHomeSuccess(
+        checkInTime: checkInTime,
+        checkOutTime: checkOutTime,
+        workingTime: workingTime,
+        currentLocation: currentLocation));
   }
 }

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:onsite_employee_management_system/page/landing/bloc/ci_co_bloc/ci_co_bloc.dart';
 import 'package:onsite_employee_management_system/routes/routes_management.dart';
 import 'package:onsite_employee_management_system/utils/observing_bloc.dart';
-
-import 'bloc/ci_co_bloc/ci_co_bloc.dart';
 
 void main() {
   Bloc.observer = MyBlocObserver();
