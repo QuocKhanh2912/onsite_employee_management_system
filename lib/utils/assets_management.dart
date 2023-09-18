@@ -26,6 +26,9 @@ class AssetsManagement {
   static const String positionIcon = '$assetsImage/position_icon.png';
   static const String doneIcon = '$assetsImage/done_icon.png';
   static const String checkInClockIcon = '$assetsImage/checkin_clock_icon.png';
-  static const String checkOutClockIcon = '$assetsImage/checkout_clock_icon.png';
+  static const String checkOutClockIcon =
+      '$assetsImage/checkout_clock_icon.png';
   static const String workingClockIcon = '$assetsImage/working_clock_icon.png';
+  static const String warningDialogIcon =
+      '$assetsImage/warning_in_dialog_icon.png';
 }

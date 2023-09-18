@@ -5,3 +5,7 @@ abstract class SetLocationState {}
 
 class SetLocationInitial extends SetLocationState {}
 class SaveLocationToLocalSuccess extends SetLocationState {}
+
+class CheckLocationLoading extends SetLocationState {}
+class FarAwayLocationState extends SetLocationState {}
+class NearLocationState extends SetLocationState {}

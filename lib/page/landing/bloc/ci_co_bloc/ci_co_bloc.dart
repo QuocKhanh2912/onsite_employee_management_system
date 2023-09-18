@@ -12,7 +12,6 @@ class CiCoBloc extends Bloc<CiCoEvent, CiCoState> {
     on<CheckInEvent>(_checkInEvent);
     on<CheckOutEvent>(_checkOutEvent);
     on<CheckInYetEvent>(_checkInYetEvent);
-    on<CheckNearLocation>(_checkNearLocation);
   }
 
   _checkInYetEvent(CheckInYetEvent event, Emitter<CiCoState> emit) async {
@@ -36,7 +35,8 @@ class CiCoBloc extends Bloc<CiCoEvent, CiCoState> {
         emit(CheckInSuccessState(
             timeCheckIn: DateTimeManagement.getCurrentTime()));
       } else {
-        emit(FarAwayLocationState());
+        emit(CheckInSuccessButOutSideState(
+            timeCheckIn: DateTimeManagement.getCurrentTime()));
       }
     } catch (e) {
       emit(CheckInUnSuccessState());
@@ -55,23 +55,11 @@ class CiCoBloc extends Bloc<CiCoEvent, CiCoState> {
         emit(CheckOutSuccessState(
             timeCheckOut: DateTimeManagement.getCurrentTime()));
       } else {
-        emit(FarAwayLocationState());
+        emit(CheckOutSuccessButOutSideState(
+            timeCheckOut: DateTimeManagement.getCurrentTime()));
       }
     } catch (e) {
       emit(CheckOutUnSuccessState());
-    }
-  }
-
-  _checkNearLocation(CheckNearLocation event, Emitter<CiCoState> emit) async {
-    emit(CheckLocationLoading());
-    var currentLocation = await LocalService.getCurrentLocation();
-    var locationLatLng = currentLocation.locationLatLng;
-    var distance = await GeolocationService.determineDistance(
-        locationLatLng: locationLatLng);
-    if (distance > 100) {
-      emit(FarAwayLocationState());
-    } else {
-      emit(NearLocationState());
     }
   }
 }

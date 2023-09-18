@@ -35,14 +35,16 @@ class _HomePageState extends State<HomePage> {
   String timeCheckIn = '--:--';
   String timeCheckOut = '--:--';
   String timeWorking = '--:--';
+  TextEditingController outSideDescriptionController = TextEditingController();
   LocationModal currentLocation = LocationModal.nbr;
   final HomeBloc _homeBloc = HomeBloc();
   final CiCoBloc _ciCoBloc = CiCoBloc();
+  final SetLocationBloc _setLocationBloc = SetLocationBloc();
 
   @override
   void initState() {
     _homeBloc.add(GetInfoHomeEvent());
-    _ciCoBloc.add(CheckNearLocation());
+    _setLocationBloc.add(CheckNearLocationEvent());
     super.initState();
   }
 
@@ -53,9 +55,7 @@ class _HomePageState extends State<HomePage> {
         BlocProvider.value(
           value: _homeBloc,
         ),
-        BlocProvider(
-          create: (context) => SetLocationBloc(),
-        ),
+        BlocProvider.value(value: _setLocationBloc),
         BlocProvider.value(value: _ciCoBloc)
       ],
       child: Scaffold(
@@ -67,7 +67,7 @@ class _HomePageState extends State<HomePage> {
           endDrawer: const DrawerCustom(),
           body: MultiBlocListener(
             listeners: [
-              BlocListener<CiCoBloc, CiCoState>(
+              BlocListener<SetLocationBloc, SetLocationState>(
                 listener: (context, state) {
                   if (state is FarAwayLocationState) {
                     showDialog(
@@ -89,6 +89,17 @@ class _HomePageState extends State<HomePage> {
                   }
                 },
               ),
+              BlocListener<CiCoBloc, CiCoState>(
+                listener: (context, state) {
+                  if (state is CheckInSuccessButOutSideState) {
+                    showDialog(
+                      context: context,
+                      builder: (context) => DialogCustom.dialogOutsideReason(
+                          context, outSideDescriptionController),
+                    );
+                  }
+                },
+              ),
             ],
             child: WillPopScope(
               onWillPop: () async => false,
@@ -106,7 +117,8 @@ class _HomePageState extends State<HomePage> {
                             height: 55,
                           ),
                           Builder(builder: (context) {
-                            return BlocBuilder<CiCoBloc, CiCoState>(
+                            return BlocBuilder<SetLocationBloc,
+                                SetLocationState>(
                               builder: (context, state) {
                                 if (state is FarAwayLocationState) {
                                   return Row(children: [
@@ -206,32 +218,37 @@ class _HomePageState extends State<HomePage> {
                           const SizedBox(
                             height: 54,
                           ),
-                          BlocBuilder<CiCoBloc, CiCoState>(
+                          BlocBuilder<SetLocationBloc, SetLocationState>(
                             builder: (context, state) {
                               if (state is FarAwayLocationState) {
-                                return Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 42),
-                                  child: RichText(
-                                      maxLines: 4,
-                                      text: const TextSpan(
-                                        children: [
-                                          TextSpan(
-                                              text:
-                                                  'Note: Please go inside Office range then  ',
-                                              style: TextStyleManagement
-                                                  .textNormalBlack20),
-                                          TextSpan(children: [
+                                return InkWell(
+                                  onTap: () =>
+                                      context.pushNamed(RouteNamed.landingPage),
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 42),
+                                    child: RichText(
+                                        maxLines: 4,
+                                        text: const TextSpan(
+                                          children: [
                                             TextSpan(
-                                              text: 'try again!',
-                                              style: TextStyleManagement
-                                                  .textUnderlineRed18,
-                                            )
-                                          ])
-                                        ],
-                                      )),
+                                                text:
+                                                    'Note: Please go inside Office range then  ',
+                                                style: TextStyleManagement
+                                                    .textNormalBlack20),
+                                            TextSpan(children: [
+                                              TextSpan(
+                                                text: 'try again!',
+                                                style: TextStyleManagement
+                                                    .textUnderlineRed18,
+                                              )
+                                            ])
+                                          ],
+                                        )),
+                                  ),
                                 );
-                              } if (state is NearLocationState) {
+                              }
+                              if (state is NearLocationState) {
                                 return InkWell(
                                   onTap: () {
                                     context.pushNamed(RouteNamed.landingPage);

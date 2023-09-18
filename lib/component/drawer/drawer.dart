@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:onsite_employee_management_system/component/dialog/dialog_custom.dart';
 import 'package:onsite_employee_management_system/page/home/component/item_drawer.dart';
 import 'package:onsite_employee_management_system/routes/route_named.dart';
 import 'package:onsite_employee_management_system/service/local/local_service.dart';
@@ -51,13 +50,7 @@ class DrawerCustom extends StatelessWidget {
                     ),
                     const SizedBox(height: 15),
                     InkWell(
-                      onTap: () {
-                        showDialog(
-                          context: context,
-                          builder: (context) =>
-                              DialogCustom.dialogToChangeLocation(context),
-                        );
-                      },
+                      onTap: () {},
                       child: const ItemDrawer(
                         imageIcon: AssetsManagement.issuesIcon,
                         itemName: 'Issues',

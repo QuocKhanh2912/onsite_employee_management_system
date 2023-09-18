@@ -31,7 +31,8 @@ class _LandingPageState extends State<LandingPage> {
         listener: (context, state) {
           if (state is CheckInSuccessState ||
               state is CheckOutSuccessState ||
-              state is FarAwayLocationState) {
+              state is CheckInSuccessButOutSideState ||
+              state is CheckOutSuccessButOutSideState) {
             context.pushNamed(RouteNamed.homePage);
           }
           if (state is CheckedInState) {

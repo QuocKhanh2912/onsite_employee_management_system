@@ -114,7 +114,7 @@ class _SetLocationPageState extends State<SetLocationPage> {
                                 if (formKey.currentState!.validate()) {
                                   formKey.currentState!.save();
                                   context.read<SetLocationBloc>().add(
-                                      SaveLocationToLocal(
+                                      SaveLocationToLocalEvent(
                                           locationName: selectController.text));
                                 }
                               },

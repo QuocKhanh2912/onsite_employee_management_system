@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'colors_management.dart';
 
 class TextStyleManagement {
+  static const TextStyle textNormalWhite16 = TextStyle(
+      fontWeight: FontWeight.w400, fontSize: 16, color: ColorsManagement.white);
   static const TextStyle textNormalWhite19 = TextStyle(
       fontWeight: FontWeight.w400, fontSize: 19, color: ColorsManagement.white);
   static const TextStyle textNormalWhite21 = TextStyle(
