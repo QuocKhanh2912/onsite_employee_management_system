@@ -21,4 +21,35 @@ class DateTimeManagement {
     final int differenceMinute = differenceTime.inMinutes;
     return '$differenceHour:$differenceMinute';
   }
+
+  static bool checkLate({required String time}) {
+    if (time == '--:--' || time.isEmpty) {
+      return false;
+    }
+    final inputFormat = DateFormat('h:mm a');
+    final targetTime = inputFormat.parse('08:00 AM');
+    final parsedTime = inputFormat.parse(time);
+    return parsedTime.isAfter(targetTime);
+  }
+
+  static bool checkEarly({required String time}) {
+    if (time == '--:--' || time.isEmpty) {
+      return false;
+    }
+    final inputFormat = DateFormat('h:mm a');
+    final targetTime = inputFormat.parse('5:00 PM');
+    final parsedTime = inputFormat.parse(time);
+    return parsedTime.isBefore(targetTime);
+  }
+
+  static bool checkTimeWorking({required String time}) {
+    if (time == '--:--' || time.isEmpty) {
+      return false;
+    }
+    final inputFormat = DateFormat('h:mm');
+    final parsedTime = inputFormat.parse(time);
+    final workingHours = parsedTime.hour;
+    final workingMinutes = parsedTime.minute;
+    return workingMinutes + workingHours * 60 < 480;
+  }
 }

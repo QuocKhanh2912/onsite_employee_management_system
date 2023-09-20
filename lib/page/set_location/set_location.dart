@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:onsite_employee_management_system/component/button/normal_button_custom.dart';
-import 'package:onsite_employee_management_system/component/drawer/drawer.dart';
+import 'package:onsite_employee_management_system/component/drawer/employee_drawer.dart';
 import 'package:onsite_employee_management_system/component/show_current_time/show_current_time.dart';
 import 'package:onsite_employee_management_system/component/text_form_field/prefix_text_form_field_custom.dart';
 import 'package:onsite_employee_management_system/page/landing/bloc/ci_co_bloc/ci_co_bloc.dart';
@@ -42,7 +42,7 @@ class _SetLocationPageState extends State<SetLocationPage> {
         appBar: AppBar(
           backgroundColor: ColorsManagement.green,
         ),
-        endDrawer: const DrawerCustom(),
+        endDrawer: const EmployeeDrawerCustom(),
         body: BlocListener<SetLocationBloc, SetLocationState>(
           listener: (context, state) {
             if (state is SaveLocationToLocalSuccess) {

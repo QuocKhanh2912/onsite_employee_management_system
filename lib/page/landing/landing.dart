@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:onsite_employee_management_system/component/drawer/drawer.dart';
+import 'package:onsite_employee_management_system/component/drawer/employee_drawer.dart';
 import 'package:onsite_employee_management_system/component/show_current_time/show_current_time.dart';
 import 'package:onsite_employee_management_system/routes/route_named.dart';
 import 'package:onsite_employee_management_system/utils/assets_management.dart';
@@ -26,7 +26,7 @@ class _LandingPageState extends State<LandingPage> {
         leading: InkWell(onTap: () {}, child: const Icon(Icons.arrow_back)),
         backgroundColor: ColorsManagement.green,
       ),
-      endDrawer: const DrawerCustom(),
+      endDrawer: const EmployeeDrawerCustom(),
       body: BlocListener<CiCoBloc, CiCoState>(
         listener: (context, state) {
           if (state is CheckInSuccessState ||

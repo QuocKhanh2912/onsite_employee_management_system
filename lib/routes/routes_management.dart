@@ -1,11 +1,12 @@
 import 'package:go_router/go_router.dart';
+import 'package:onsite_employee_management_system/page/attendance/attendance.dart';
 import 'package:onsite_employee_management_system/page/authentication/Sign_in/sign_in.dart';
 import 'package:onsite_employee_management_system/page/authentication/authentication_option/authentication_option.dart';
 import 'package:onsite_employee_management_system/page/authentication/profile/profile.dart';
 import 'package:onsite_employee_management_system/page/home/home.dart';
 import 'package:onsite_employee_management_system/page/landing/landing.dart';
+import 'package:onsite_employee_management_system/page/role_selection/role_selection.dart';
 import 'package:onsite_employee_management_system/page/set_location/set_location.dart';
-import 'package:onsite_employee_management_system/page/set_prefered_location/set_prefered_location.dart';
 import 'package:onsite_employee_management_system/page/splash/splash.dart';
 import 'package:onsite_employee_management_system/routes/route_named.dart';
 
@@ -13,7 +14,7 @@ import '../page/authentication/sign_up/sign_up.dart';
 
 class RoutesManagement {
   static final routes =
-      GoRouter(initialLocation: '/', routes: [
+      GoRouter(initialLocation: '/${RouteNamed.signInPage}', routes: [
     GoRoute(
       name: RouteNamed.splashPage,
       path: '/',
@@ -50,14 +51,19 @@ class RoutesManagement {
       builder: (context, state) => const LandingPage(),
     ),
     GoRoute(
-      name: RouteNamed.setPreferLocationPage,
-      path: '/${RouteNamed.setPreferLocationPage}',
-      builder: (context, state) => const SetPreferLocation(),
-    ),
-    GoRoute(
       name: RouteNamed.setLocationPage,
       path: '/${RouteNamed.setLocationPage}',
       builder: (context, state) => const SetLocationPage(),
+    ),
+    GoRoute(
+      name: RouteNamed.roleSelectionPage,
+      path: '/${RouteNamed.roleSelectionPage}',
+      builder: (context, state) => const RoleSelectionPage(),
+    ),
+    GoRoute(
+      name: RouteNamed.attendancePage,
+      path: '/${RouteNamed.attendancePage}',
+      builder: (context, state) => const AttendancePage(),
     ),
   ]);
 }

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:onsite_employee_management_system/page/home/component/item_drawer.dart';
+import 'package:onsite_employee_management_system/component/drawer/component/item_drawer.dart';
 import 'package:onsite_employee_management_system/routes/route_named.dart';
 import 'package:onsite_employee_management_system/service/local/local_service.dart';
 import 'package:onsite_employee_management_system/utils/assets_management.dart';
 import 'package:onsite_employee_management_system/utils/colors_management.dart';
 import 'package:onsite_employee_management_system/utils/text_style_management.dart';
 
-class DrawerCustom extends StatelessWidget {
-  const DrawerCustom({super.key});
+class EmployeeDrawerCustom extends StatelessWidget {
+  const EmployeeDrawerCustom({super.key});
 
   @override
   Widget build(BuildContext context) {

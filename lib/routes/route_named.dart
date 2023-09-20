@@ -9,4 +9,7 @@
   static const String declineAttendancePage = 'declineAttendancePage';
   static const String setPreferLocationPage = 'setPreferLocation';
   static const String setLocationPage = 'setLocationPage';
+  static const String roleSelectionPage = 'roleSelection';
+  static const String attendancePage = 'attendancePage';
+
 }

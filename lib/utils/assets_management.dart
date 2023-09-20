@@ -31,4 +31,11 @@ class AssetsManagement {
   static const String workingClockIcon = '$assetsImage/working_clock_icon.png';
   static const String warningDialogIcon =
       '$assetsImage/warning_in_dialog_icon.png';
+  static const String employeeIcon = '$assetsImage/employee_icon.png';
+  static const String supervisorIcon = '$assetsImage/supervisor_icon.png';
+  static const String roleSelection = '$assetsImage/role_selection.png';
+  static const String employeeListIcon = '$assetsImage/employee_list_icon.png';
+  static const String lateComerIcon = '$assetsImage/late_comer_icon.png';
+  static const String attendanceIcon = '$assetsImage/attendance_icon.png';
+  static const String supervisorAvatar = '$assetsImage/supervisor_avatar.png';
 }

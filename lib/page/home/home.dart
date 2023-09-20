@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:onsite_employee_management_system/component/dialog/dialog_custom.dart';
-import 'package:onsite_employee_management_system/component/drawer/drawer.dart';
+import 'package:onsite_employee_management_system/component/drawer/employee_drawer.dart';
 import 'package:onsite_employee_management_system/component/show_current_time/show_current_time.dart';
 import 'package:onsite_employee_management_system/data/location_modal.dart';
 import 'package:onsite_employee_management_system/page/home/bloc/home_bloc.dart';
@@ -64,7 +64,7 @@ class _HomePageState extends State<HomePage> {
             foregroundColor: ColorsManagement.white,
             automaticallyImplyLeading: false,
           ),
-          endDrawer: const DrawerCustom(),
+          endDrawer: const EmployeeDrawerCustom(),
           body: MultiBlocListener(
             listeners: [
               BlocListener<SetLocationBloc, SetLocationState>(
@@ -258,6 +258,8 @@ class _HomePageState extends State<HomePage> {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       ShowTimeWidget(
+                                          checkTime: true,
+                                          checkLate: true,
                                           imageClock:
                                               AssetsManagement.checkInClockIcon,
                                           typeTime: 'Check In',
@@ -265,6 +267,8 @@ class _HomePageState extends State<HomePage> {
                                               ? '--:--'
                                               : timeCheckIn),
                                       ShowTimeWidget(
+                                          checkTime: true,
+                                          checkLate: false,
                                           imageClock: AssetsManagement
                                               .checkOutClockIcon,
                                           typeTime: 'Check Out',
@@ -272,6 +276,8 @@ class _HomePageState extends State<HomePage> {
                                               ? '--:--'
                                               : timeCheckOut),
                                       ShowTimeWidget(
+                                          checkTime: false,
+                                          checkLate: false,
                                           imageClock:
                                               AssetsManagement.workingClockIcon,
                                           typeTime: 'Working Hr’s',

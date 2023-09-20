@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 import 'colors_management.dart';
 
 class TextStyleManagement {
+  static const TextStyle textNormalWhite14 = TextStyle(
+      fontWeight: FontWeight.w400, fontSize: 14, color: ColorsManagement.white);
   static const TextStyle textNormalWhite16 = TextStyle(
       fontWeight: FontWeight.w400, fontSize: 16, color: ColorsManagement.white);
   static const TextStyle textNormalWhite19 = TextStyle(
       fontWeight: FontWeight.w400, fontSize: 19, color: ColorsManagement.white);
   static const TextStyle textNormalWhite21 = TextStyle(
       fontWeight: FontWeight.w400, fontSize: 21, color: ColorsManagement.white);
+  static const TextStyle textNormalWhite24 = TextStyle(
+      fontWeight: FontWeight.w400, fontSize: 24, color: ColorsManagement.white);
   static const TextStyle textBoldWhite24 = TextStyle(
       fontWeight: FontWeight.w700, fontSize: 24, color: ColorsManagement.white);
   static const TextStyle textBoldWhite19 = TextStyle(
@@ -51,6 +55,8 @@ class TextStyleManagement {
   static const TextStyle textNormalGreen15 = TextStyle(
       fontWeight: FontWeight.w400, fontSize: 15, color: ColorsManagement.green);
 
+  static const TextStyle textNormalRed17 = TextStyle(
+      fontWeight: FontWeight.w400, fontSize: 17, color: ColorsManagement.red);
   static const TextStyle textNormalRed18 = TextStyle(
       fontWeight: FontWeight.w400, fontSize: 18, color: ColorsManagement.red);
   static const TextStyle textUnderlineRed18 = TextStyle(
@@ -58,4 +64,6 @@ class TextStyleManagement {
       fontSize: 18,
       color: ColorsManagement.red,
       decoration: TextDecoration.underline);
+  static const TextStyle textBoldRed21 = TextStyle(
+      fontWeight: FontWeight.w400, fontSize: 21, color: ColorsManagement.red);
 }
