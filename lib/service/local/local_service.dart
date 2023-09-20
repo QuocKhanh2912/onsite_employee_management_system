@@ -25,7 +25,7 @@ class LocalService {
 
   static LocationModal getLocationFromLocationName(
       {required String locationName}) {
-    LocationModal? locationModal = LocationModal.locationList.firstWhere(
+    LocationModal? locationModal = LocationModal.locationListMock.firstWhere(
       (location) => location.locationName == locationName,
       orElse: () => LocationModal(
         locationId: 0,

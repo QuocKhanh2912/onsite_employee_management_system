@@ -14,7 +14,7 @@ class ShowCurrentTime extends StatelessWidget {
           style: TextStyleManagement.textBoldBlack44,
         ),
         Text(
-          DateTimeManagement.getCurrentDay(),
+          DateTimeManagement.getTodayEEEEMMMd(),
           style: TextStyleManagement.textNormalBlack26,
         ),
       ],

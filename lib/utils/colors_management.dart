@@ -8,4 +8,5 @@ class ColorsManagement {
   static const Color transparent = Color(0x00ffffff);
   static const Color backgroundOutButton = Color(0xFF414042);
   static const Color red = Color(0xB8FF0000);
+  static const Color blue = Color(0xB84053FF);
 }

@@ -74,7 +74,7 @@ class LocationModal {
       locationAdd: 'Narsala, Brahma Nagar, Dighori, Nagpur, Maharashtra',
       locationLatLng: const LatLng(17.746569, 107.854658));
 
-  static List<LocationModal> locationList = [
+  static List<LocationModal> locationListMock = [
     nbr,
     cch,
     bdbl,

@@ -19,6 +19,8 @@ class TextStyleManagement {
 
   static const TextStyle textNormalBlack15 = TextStyle(
       fontWeight: FontWeight.w400, fontSize: 15, color: ColorsManagement.black);
+  static const TextStyle textNormalBlack16 = TextStyle(
+      fontWeight: FontWeight.w400, fontSize: 16, color: ColorsManagement.black);
   static const TextStyle textNormalBlack17 = TextStyle(
       fontWeight: FontWeight.w400, fontSize: 17, color: ColorsManagement.black);
   static const TextStyle textNormalBlack18 = TextStyle(
@@ -49,12 +51,24 @@ class TextStyleManagement {
       fontSize: 19,
       height: 1.1,
       color: ColorsManagement.blurBlack);
+  static const TextStyle textBlurBlack18 = TextStyle(
+      fontWeight: FontWeight.w300,
+      fontSize: 18,
+      color: ColorsManagement.blurBlack);
+  static const TextStyle textBlurBlack14 = TextStyle(
+      fontWeight: FontWeight.w400,
+      fontSize: 14,
+      color: ColorsManagement.blurBlack);
 
-  static const TextStyle textNormalGreen19 = TextStyle(
-      fontWeight: FontWeight.w400, fontSize: 19, color: ColorsManagement.green);
   static const TextStyle textNormalGreen15 = TextStyle(
       fontWeight: FontWeight.w400, fontSize: 15, color: ColorsManagement.green);
+  static const TextStyle textNormalGreen19 = TextStyle(
+      fontWeight: FontWeight.w400, fontSize: 19, color: ColorsManagement.green);
+  static const TextStyle textNormalGreen20 = TextStyle(
+      fontWeight: FontWeight.w400, fontSize: 20, color: ColorsManagement.green);
 
+  static const TextStyle textNormalRed16 = TextStyle(
+      fontWeight: FontWeight.w400, fontSize: 16, color: ColorsManagement.red);
   static const TextStyle textNormalRed17 = TextStyle(
       fontWeight: FontWeight.w400, fontSize: 17, color: ColorsManagement.red);
   static const TextStyle textNormalRed18 = TextStyle(
@@ -66,4 +80,11 @@ class TextStyleManagement {
       decoration: TextDecoration.underline);
   static const TextStyle textBoldRed21 = TextStyle(
       fontWeight: FontWeight.w400, fontSize: 21, color: ColorsManagement.red);
+
+  static const TextStyle textUnderlineBlue13 = TextStyle(
+      fontWeight: FontWeight.w400,
+      fontSize: 13,
+      color: ColorsManagement.blue,
+      decoration: TextDecoration.underline,
+      decorationColor: ColorsManagement.blue);
 }

@@ -1,9 +1,14 @@
 import 'package:intl/intl.dart';
 
 class DateTimeManagement {
-  static String getCurrentDay() {
+  static String getTodayEEEEMMMd() {
     var currentTime = DateTime.now();
     return DateFormat("EEEE, MMM d").format(currentTime);
+  }
+
+  static String getTodayDDMMMYYYY() {
+    var currentTime = DateTime.now();
+    return DateFormat("dd-MMM-yyyy").format(currentTime);
   }
 
   static String getCurrentTime() {
@@ -38,8 +43,8 @@ class DateTimeManagement {
     }
     final inputFormat = DateFormat('h:mm a');
     final targetTime = inputFormat.parse('5:00 PM');
-    final parsedTime = inputFormat.parse(time);
-    return parsedTime.isBefore(targetTime);
+    final inputTime = inputFormat.parse(time);
+    return inputTime.isBefore(targetTime);
   }
 
   static bool checkTimeWorking({required String time}) {

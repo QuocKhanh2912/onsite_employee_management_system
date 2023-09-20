@@ -72,9 +72,12 @@ class EmployeeDrawerCustom extends StatelessWidget {
                       itemName: 'Change Password',
                     ),
                     const SizedBox(height: 15),
-                    const ItemDrawer(
-                      imageIcon: AssetsManagement.logoutIcon,
-                      itemName: 'Logout',
+                    InkWell(
+                      onTap: () => context.pushNamed(RouteNamed.signInPage),
+                      child: const ItemDrawer(
+                        imageIcon: AssetsManagement.logoutIcon,
+                        itemName: 'Logout',
+                      ),
                     ),
                     const SizedBox(height: 15),
                     InkWell(
