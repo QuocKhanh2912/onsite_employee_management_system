@@ -19,8 +19,7 @@ class CiCoPerDateModal {
     AttendanceDataModal(
         attendanceDataId: 123456,
         participant: UserModal.mobussharIslam,
-        inTime: '08:05 AM',
-        outTime: '04:22 PM'),
+        inTime: '08:05 AM'),
     AttendanceDataModal(
         attendanceDataId: 123456,
         participant: UserModal.milon,
@@ -29,7 +28,6 @@ class CiCoPerDateModal {
     AttendanceDataModal(
         attendanceDataId: 123456,
         participant: UserModal.ratul,
-        inTime: '07:55 AM',
         outTime: '04:01 PM'),
     AttendanceDataModal(
         attendanceDataId: 123456,
@@ -39,9 +37,10 @@ class CiCoPerDateModal {
     AttendanceDataModal(
         attendanceDataId: 123456,
         participant: UserModal.ratul,
-        inTime: '07:55 AM',
-        outTime: '05:01 PM'),
+    ),
   ], earlyLeavers: [
+    EarlyLeaverModal(
+        earlyLeaver: UserModal.milon, timeIn: '03:30 PM', lateBy: '01:30'),
     EarlyLeaverModal(
         earlyLeaver: UserModal.sorif, timeIn: '04:34 PM', lateBy: '00:26'),
     EarlyLeaverModal(

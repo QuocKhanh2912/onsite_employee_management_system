@@ -47,16 +47,22 @@ class SupervisorDrawerCustom extends StatelessWidget {
                     ),
                     const SizedBox(height: 15),
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        context.pushNamed(RouteNamed.lateComerPage);
+                      },
                       child: const ItemDrawer(
                         imageIcon: AssetsManagement.lateComerIcon,
                         itemName: 'Late Comers',
                       ),
                     ),
                     const SizedBox(height: 15),
-                    const ItemDrawer(
-                      imageIcon: AssetsManagement.lateComerIcon,
-                      itemName: 'Early Leavers',
+                    InkWell(
+                      onTap: () =>
+                          context.pushNamed(RouteNamed.earlyLeaverPage),
+                      child: const ItemDrawer(
+                        imageIcon: AssetsManagement.lateComerIcon,
+                        itemName: 'Early Leavers',
+                      ),
                     ),
                     const SizedBox(height: 15),
                     const ItemDrawer(

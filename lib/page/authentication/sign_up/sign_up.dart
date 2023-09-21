@@ -91,7 +91,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       buttonName: 'Sign Up',
                       textNameStyle: TextStyleManagement.textNormalWhite19,
                       onPress: () {
-                        context.goNamed(RouteNamed.profilePage);
+                        context.pushReplacementNamed(RouteNamed.profilePage);
                       },
                     ),
                     const SizedBox(height: 10),

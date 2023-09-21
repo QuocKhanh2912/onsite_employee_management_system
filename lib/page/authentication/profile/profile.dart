@@ -34,87 +34,84 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: WillPopScope(
-        onWillPop: () async => false,
-        child: SafeArea(
-          child: GestureDetector(
-            onTap: () {
-              FocusScope.of(context).unfocus();
-            },
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 27),
-              child: SingleChildScrollView(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const SizedBox(
-                      height: 100,
-                    ),
-                    Image.asset(AssetsManagement.profileLogo),
-                    const SizedBox(
-                      height: 22,
-                    ),
-                    const Text(
-                      'Update profile',
-                      style: TextStyleManagement.textNormalBlack26,
-                    ),
-                    const SizedBox(
-                      height: 42,
-                    ),
-                    TextFormFieldCustom(
-                        hintText: 'Designation',
-                        controller: designationController,
-                        maxLine: 1,
-                        requiredIcon: false),
-                    const SizedBox(
-                      height: 22,
-                    ),
-                    TextFormFieldCustom(
-                        hintText: 'Department',
-                        controller: departmentController,
-                        maxLine: 1,
-                        requiredIcon: false),
-                    const SizedBox(
-                      height: 22,
-                    ),
-                    TextFormFieldCustom(
-                        hintText: 'Team Name',
-                        controller: teamNameController,
-                        maxLine: 1,
-                        requiredIcon: false),
-                    const SizedBox(
-                      height: 22,
-                    ),
-                    TextFormFieldCustom(
-                        hintText: 'Supervised By',
-                        controller: supervisedByController,
-                        maxLine: 1,
-                        requiredIcon: false),
-                    const SizedBox(
-                      height: 22,
-                    ),
-                    TextFormFieldCustom(
-                        hintText: 'Designation',
-                        controller: designationController,
-                        maxLine: 1,
-                        requiredIcon: false),
-                    const SizedBox(
-                      height: 22,
-                    ),
-                    NormalButtonCustom(
-                      buttonName: 'Update',
-                      heightButton: 50,
-                      widthButton: double.infinity,
-                      textNameStyle: TextStyleManagement.textNormalWhite19,
-                      colorBackGroundButton: ColorsManagement.green,
-                      colorOutlineButton: ColorsManagement.blurBlack,
-                      onPress: () {
-                        context.goNamed(RouteNamed.homePage);
-                      },
-                    )
-                  ],
-                ),
+      body: SafeArea(
+        child: GestureDetector(
+          onTap: () {
+            FocusScope.of(context).unfocus();
+          },
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 27),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const SizedBox(
+                    height: 100,
+                  ),
+                  Image.asset(AssetsManagement.profileLogo),
+                  const SizedBox(
+                    height: 22,
+                  ),
+                  const Text(
+                    'Update profile',
+                    style: TextStyleManagement.textNormalBlack26,
+                  ),
+                  const SizedBox(
+                    height: 42,
+                  ),
+                  TextFormFieldCustom(
+                      hintText: 'Designation',
+                      controller: designationController,
+                      maxLine: 1,
+                      requiredIcon: false),
+                  const SizedBox(
+                    height: 22,
+                  ),
+                  TextFormFieldCustom(
+                      hintText: 'Department',
+                      controller: departmentController,
+                      maxLine: 1,
+                      requiredIcon: false),
+                  const SizedBox(
+                    height: 22,
+                  ),
+                  TextFormFieldCustom(
+                      hintText: 'Team Name',
+                      controller: teamNameController,
+                      maxLine: 1,
+                      requiredIcon: false),
+                  const SizedBox(
+                    height: 22,
+                  ),
+                  TextFormFieldCustom(
+                      hintText: 'Supervised By',
+                      controller: supervisedByController,
+                      maxLine: 1,
+                      requiredIcon: false),
+                  const SizedBox(
+                    height: 22,
+                  ),
+                  TextFormFieldCustom(
+                      hintText: 'Designation',
+                      controller: designationController,
+                      maxLine: 1,
+                      requiredIcon: false),
+                  const SizedBox(
+                    height: 22,
+                  ),
+                  NormalButtonCustom(
+                    buttonName: 'Update',
+                    heightButton: 50,
+                    widthButton: double.infinity,
+                    textNameStyle: TextStyleManagement.textNormalWhite19,
+                    colorBackGroundButton: ColorsManagement.green,
+                    colorOutlineButton: ColorsManagement.blurBlack,
+                    onPress: () {
+                      context.goNamed(RouteNamed.homePage);
+                    },
+                  )
+                ],
               ),
             ),
           ),

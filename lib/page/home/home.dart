@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -170,7 +172,25 @@ class _HomePageState extends State<HomePage> {
                           ),
                           SizedBox(
                               height: 233,
-                              child: GoogleMap(
+                              child: GoogleMap(gestureRecognizers: {
+                                Factory<OneSequenceGestureRecognizer>(() => EagerGestureRecognizer())
+                              },
+                                markers: {
+                                  Marker(
+                                      markerId: const MarkerId('1'),
+                                      position: const LatLng(13.746519, 107.854663),
+                                      infoWindow: const InfoWindow(
+                                          title:
+                                              'Drag and hold this to location!'),
+                                      icon:
+                                          BitmapDescriptor.defaultMarkerWithHue(
+                                        BitmapDescriptor.hueRed,
+                                      ),
+                                      draggable: true)
+                                },
+                                scrollGesturesEnabled: true,
+                                onCameraMove: (position) {
+                                },
                                 onMapCreated: onMapCreated,
                                 initialCameraPosition:
                                     CameraPosition(target: _center, zoom: 15.0),

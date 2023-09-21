@@ -11,5 +11,7 @@
   static const String setLocationPage = 'setLocationPage';
   static const String roleSelectionPage = 'roleSelection';
   static const String attendancePage = 'attendancePage';
+  static const String lateComerPage = 'lateComerPage';
+  static const String earlyLeaverPage = 'earlyLeaverPage';
 
 }
