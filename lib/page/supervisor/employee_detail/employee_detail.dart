@@ -4,6 +4,7 @@ import 'package:onsite_employee_management_system/component/drawer/supervisor_dr
 import 'package:onsite_employee_management_system/data/item_list_drop_down.dart';
 import 'package:onsite_employee_management_system/data/user_modal.dart';
 import 'package:onsite_employee_management_system/page/supervisor/employee_detail/component/chart_custom.dart';
+import 'package:onsite_employee_management_system/routes/route_named.dart';
 import 'package:onsite_employee_management_system/utils/assets_management.dart';
 import 'package:onsite_employee_management_system/utils/colors_management.dart';
 import 'package:onsite_employee_management_system/utils/text_style_management.dart';
@@ -12,7 +13,8 @@ import 'component/drop_down_custom.dart';
 import 'component/leave_request_custom.dart';
 
 class EmployeeDetailPage extends StatefulWidget {
-  const EmployeeDetailPage({super.key});
+  const EmployeeDetailPage({super.key,required this.userInfo});
+  final UserModal userInfo;
 
   @override
   State<EmployeeDetailPage> createState() => _EmployeeDetailPageState();
@@ -57,10 +59,10 @@ class _EmployeeDetailPageState extends State<EmployeeDetailPage> {
                 height: 10,
               ),
               Text(
-                'Employ Id: ${UserModal.mobussharIslam.userId}',
+                'Employ Id: ${widget.userInfo.userId}',
                 style: TextStyleManagement.textNormalWhite16,
               ),
-              Text(UserModal.mobussharIslam.userName,
+              Text(widget.userInfo.userName,
                   style: TextStyleManagement.textNormalWhite18)
             ],
           ),
@@ -97,7 +99,9 @@ class _EmployeeDetailPageState extends State<EmployeeDetailPage> {
                       widthContent: 110,
                       onChange: () {},
                     ),
-                    Image.asset(AssetsManagement.calendarIcon)
+                    InkWell(onTap: () {
+                      context.pushNamed(RouteNamed.calendarPage);
+                    },child: Image.asset(AssetsManagement.calendarIcon))
                   ],
                 ),
                 const SizedBox(
@@ -106,7 +110,7 @@ class _EmployeeDetailPageState extends State<EmployeeDetailPage> {
                 const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      ChartCustom(percent: 10, title: 'Late'),
+                      ChartCustom(percent: 20, title: 'Late'),
                       SizedBox(
                         width: 31,
                       ),

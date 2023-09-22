@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:onsite_employee_management_system/utils/colors_management.dart';
 import 'package:onsite_employee_management_system/utils/text_style_management.dart';
 
+import 'custom_paint.dart';
+
 class ChartCustom extends StatelessWidget {
   const ChartCustom({super.key, required this.title, required this.percent});
 
@@ -18,12 +20,13 @@ class ChartCustom extends StatelessWidget {
           decoration: BoxDecoration(
               shape: BoxShape.circle,
               border: Border.all(color: ColorsManagement.blurBlack, width: 5)),
-          child: Container(
-            width: 71,
-            height: 71,
-            decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                border: Border.all(color: ColorsManagement.green, width: 5)),
+          child: CustomPaint(
+            painter: LineCircleFractionPainter(
+                strokeWidth: 5,
+                color: percent >= 10
+                    ? ColorsManagement.red
+                    : ColorsManagement.green,
+                fraction: percent.toDouble() / 100),
             child: Align(
                 alignment: Alignment.center,
                 child: Text('$percent%',

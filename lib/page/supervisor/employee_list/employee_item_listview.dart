@@ -26,7 +26,8 @@ class EmployeeItemListView extends StatelessWidget {
           SizedBox(
               width: 100,
               child: InkWell(
-                onTap: () => context.pushNamed(RouteNamed.employeeDetailPage),
+                onTap: () => context.pushNamed(RouteNamed.employeeDetailPage,
+                    extra: <String, UserModal>{'user': listUser[index]}),
                 child: const Icon(
                   Icons.visibility_outlined,
                   size: 18,

@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:onsite_employee_management_system/data/user_modal.dart';
 import 'package:onsite_employee_management_system/page/authentication/Sign_in/sign_in.dart';
 import 'package:onsite_employee_management_system/page/authentication/authentication_option/authentication_option.dart';
 import 'package:onsite_employee_management_system/page/authentication/profile/profile.dart';
@@ -8,6 +9,7 @@ import 'package:onsite_employee_management_system/page/role_selection/role_selec
 import 'package:onsite_employee_management_system/page/set_location/set_location.dart';
 import 'package:onsite_employee_management_system/page/splash/splash.dart';
 import 'package:onsite_employee_management_system/page/supervisor/attendance/attendance.dart';
+import 'package:onsite_employee_management_system/page/supervisor/calendar/calendar.dart';
 import 'package:onsite_employee_management_system/page/supervisor/early_leaver/early_leaver.dart';
 import 'package:onsite_employee_management_system/page/supervisor/employee_detail/employee_detail.dart';
 import 'package:onsite_employee_management_system/page/supervisor/employee_list/employee_list.dart';
@@ -86,7 +88,14 @@ class RoutesManagement {
           GoRoute(
             name: RouteNamed.employeeDetailPage,
             path: RouteNamed.employeeDetailPage,
-            builder: (context, state) => const EmployeeDetailPage(),
+            builder: (context, state) {
+              var user = state.extra as Map<String, dynamic>? ?? {};
+               return EmployeeDetailPage(userInfo: user['user'] as UserModal);}
+          ),
+          GoRoute(
+            name: RouteNamed.calendarPage,
+            path: RouteNamed.calendarPage,
+            builder: (context, state) => const CalendarPage(),
           ),
         ]),
   ]);

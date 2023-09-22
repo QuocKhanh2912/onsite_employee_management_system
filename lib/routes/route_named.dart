@@ -15,5 +15,6 @@
   static const String earlyLeaverPage = 'earlyLeaverPage';
   static const String employeeListPage = 'employeeListPage';
   static const String employeeDetailPage = 'employeeDetailPage';
+  static const String calendarPage = 'calendarPage';
 
 }

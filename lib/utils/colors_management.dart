@@ -9,4 +9,8 @@ class ColorsManagement {
   static const Color backgroundOutButton = Color(0xFF414042);
   static const Color red = Color(0xB8FF0000);
   static const Color blue = Color(0xB84053FF);
+  static const Color blurRed = Color(0xB8FF0000);
+  static const Color blurGray = Color(0x67000000);
+  static const Color pink = Color(0xFFFFA599);
+  static const Color purple = Color(0xFFC699FF);
 }

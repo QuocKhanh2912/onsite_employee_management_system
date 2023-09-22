@@ -19,6 +19,8 @@ class TextStyleManagement {
   static const TextStyle textBoldWhite19 = TextStyle(
       fontWeight: FontWeight.w700, fontSize: 19, color: ColorsManagement.white);
 
+  static const TextStyle textNormalBlack14 = TextStyle(
+      fontWeight: FontWeight.w400, fontSize: 14, color: ColorsManagement.black);
   static const TextStyle textNormalBlack15 = TextStyle(
       fontWeight: FontWeight.w400, fontSize: 15, color: ColorsManagement.black);
   static const TextStyle textNormalBlack16 = TextStyle(
@@ -64,6 +66,10 @@ class TextStyleManagement {
   static const TextStyle textBlurBlack14 = TextStyle(
       fontWeight: FontWeight.w400,
       fontSize: 14,
+      color: ColorsManagement.blurBlack);
+  static const TextStyle textBlurBlack24 = TextStyle(
+      fontWeight: FontWeight.w400,
+      fontSize: 24,
       color: ColorsManagement.blurBlack);
 
   static const TextStyle textNormalGreen15 = TextStyle(
