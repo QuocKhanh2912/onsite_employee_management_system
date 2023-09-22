@@ -38,4 +38,6 @@ class AssetsManagement {
   static const String lateComerIcon = '$assetsImage/late_comer_icon.png';
   static const String attendanceIcon = '$assetsImage/attendance_icon.png';
   static const String supervisorAvatar = '$assetsImage/supervisor_avatar.png';
+  static const String employeeDetailIcon = '$assetsImage/employee_detail_icon.png';
+  static const String calendarIcon = '$assetsImage/calendar_icon.png';
 }

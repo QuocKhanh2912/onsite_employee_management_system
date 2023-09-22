@@ -30,7 +30,7 @@ class FramePageCustom extends StatefulWidget {
 
 class _FramePageCustomState extends State<FramePageCustom> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  TextEditingController selectDateController = TextEditingController();
+    TextEditingController selectDateController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +83,7 @@ class _FramePageCustomState extends State<FramePageCustom> {
                       SizedBox(
                         height: double.infinity,
                         child: VerticalDivider(
-                            thickness: 1, color: ColorsManagement.black),
+                            thickness: 1, color: ColorsManagement.blue),
                       ),
                       Text(
                         'PDF',

@@ -9,6 +9,8 @@ import 'package:onsite_employee_management_system/page/set_location/set_location
 import 'package:onsite_employee_management_system/page/splash/splash.dart';
 import 'package:onsite_employee_management_system/page/supervisor/attendance/attendance.dart';
 import 'package:onsite_employee_management_system/page/supervisor/early_leaver/early_leaver.dart';
+import 'package:onsite_employee_management_system/page/supervisor/employee_detail/employee_detail.dart';
+import 'package:onsite_employee_management_system/page/supervisor/employee_list/employee_list.dart';
 import 'package:onsite_employee_management_system/page/supervisor/late_comer/late_comer.dart';
 import 'package:onsite_employee_management_system/routes/route_named.dart';
 
@@ -75,6 +77,16 @@ class RoutesManagement {
             name: RouteNamed.earlyLeaverPage,
             path: RouteNamed.earlyLeaverPage,
             builder: (context, state) => const EarlyLeaverPage(),
+          ),
+          GoRoute(
+            name: RouteNamed.employeeListPage,
+            path: RouteNamed.employeeListPage,
+            builder: (context, state) => const EmployeeList(),
+          ),
+          GoRoute(
+            name: RouteNamed.employeeDetailPage,
+            path: RouteNamed.employeeDetailPage,
+            builder: (context, state) => const EmployeeDetailPage(),
           ),
         ]),
   ]);

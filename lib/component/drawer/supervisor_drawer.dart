@@ -39,7 +39,9 @@ class SupervisorDrawerCustom extends StatelessWidget {
                       children: [
                     const SizedBox(height: 31),
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        context.pushNamed(RouteNamed.attendancePage);
+                      },
                       child: const ItemDrawer(
                         imageIcon: AssetsManagement.attendanceIcon,
                         itemName: 'Attendance',
@@ -80,9 +82,11 @@ class SupervisorDrawerCustom extends StatelessWidget {
                       itemName: 'Incident Reports',
                     ),
                     const SizedBox(height: 15),
-                    const ItemDrawer(
-                      imageIcon: AssetsManagement.employeeListIcon,
-                      itemName: 'Employee List',
+                    InkWell(onTap: () => context.pushNamed(RouteNamed.employeeListPage),
+                      child: const ItemDrawer(
+                        imageIcon: AssetsManagement.employeeListIcon,
+                        itemName: 'Employee List',
+                      ),
                     ),
                     const SizedBox(height: 15),
                     InkWell(

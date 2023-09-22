@@ -19,5 +19,5 @@ class UserModal {
       userId: 123456, userName: 'Md. Mobusshar Islam', role: 'UI/UX Designer');
   static UserModal ratul =
       UserModal(userId: 123456, userName: 'Md. Ratul', role: 'UI/UX Designer');
-  //List<UserModal> userMockData = [nahin,sharek,milon,islam,sorif,mobussharIslam,ratul];
+  static List<UserModal> userMockData = [nahin,sharek,milon,islam,sorif,mobussharIslam,ratul];
 }

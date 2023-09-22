@@ -77,11 +77,10 @@ class ItemListViewFramePage extends StatelessWidget {
             ),
           ),
         ),
-        Container(
-          width: 1,
-          height: 56,
-          color: ColorsManagement.blurBlack,
-        ),
+        const SizedBox(
+            height: 56,
+            child: VerticalDivider(
+                thickness: 1, color: ColorsManagement.blurBlack)),
         const SizedBox(width: 16),
         SizedBox(
           width: MediaQuery.sizeOf(context).width / 2.4,
@@ -124,7 +123,7 @@ class ItemListViewFramePage extends StatelessWidget {
                                     listAttendances![index].outTime ?? '--:--')
                             ? TextStyleManagement.textNormalRed16
                             : TextStyleManagement.textNormalBlack16)
-                        : TextStyleManagement.textNormalBlack16,
+                        : TextStyleManagement.textNormalRed16,
                   ),
                 ),
               ),

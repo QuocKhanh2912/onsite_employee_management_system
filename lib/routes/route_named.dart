@@ -13,5 +13,7 @@
   static const String attendancePage = 'attendancePage';
   static const String lateComerPage = 'lateComerPage';
   static const String earlyLeaverPage = 'earlyLeaverPage';
+  static const String employeeListPage = 'employeeListPage';
+  static const String employeeDetailPage = 'employeeDetailPage';
 
 }

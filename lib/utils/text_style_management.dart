@@ -6,6 +6,8 @@ class TextStyleManagement {
       fontWeight: FontWeight.w400, fontSize: 14, color: ColorsManagement.white);
   static const TextStyle textNormalWhite16 = TextStyle(
       fontWeight: FontWeight.w400, fontSize: 16, color: ColorsManagement.white);
+  static const TextStyle textNormalWhite18 = TextStyle(
+      fontWeight: FontWeight.w400, fontSize: 18, color: ColorsManagement.white);
   static const TextStyle textNormalWhite19 = TextStyle(
       fontWeight: FontWeight.w400, fontSize: 19, color: ColorsManagement.white);
   static const TextStyle textNormalWhite21 = TextStyle(
@@ -54,6 +56,10 @@ class TextStyleManagement {
   static const TextStyle textBlurBlack18 = TextStyle(
       fontWeight: FontWeight.w300,
       fontSize: 18,
+      color: ColorsManagement.blurBlack);
+  static const TextStyle textBlurBlack16 = TextStyle(
+      fontWeight: FontWeight.w300,
+      fontSize: 16,
       color: ColorsManagement.blurBlack);
   static const TextStyle textBlurBlack14 = TextStyle(
       fontWeight: FontWeight.w400,
