@@ -47,8 +47,7 @@ class LocalService {
     if (time == '--:--') {
       prefs.setString(KeyManagement.timeCheckOutKey, time);
       prefs.setString(KeyManagement.timeWorkingKey, '');
-    }
-    else{
+    } else {
       prefs.setString(KeyManagement.timeCheckOutKey, time);
       var checkInTime = prefs.getString(KeyManagement.timeCheckInKey);
       var timeWorking = DateTimeManagement.calculateWorkingTime(
@@ -70,5 +69,18 @@ class LocalService {
   static Future<String> getTimeWorking() async {
     var prefs = await SharedPreferences.getInstance();
     return prefs.getString(KeyManagement.timeWorkingKey) ?? '';
+  }
+
+  static Future<void> saveCurrentPosition(
+      double latitude, double longitude) async {
+    var prefs = await SharedPreferences.getInstance();
+    prefs.setDouble(KeyManagement.latitudeKey, latitude);
+    prefs.setDouble(KeyManagement.longitudeKey, longitude);
+  }
+
+  static Future<LatLng> getCurrentPosition() async {
+    var prefs = await SharedPreferences.getInstance();
+    return LatLng(prefs.getDouble(KeyManagement.latitudeKey) ?? 0,
+        prefs.getDouble(KeyManagement.longitudeKey) ?? 0);
   }
 }

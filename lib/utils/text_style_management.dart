@@ -67,6 +67,10 @@ class TextStyleManagement {
       fontWeight: FontWeight.w400,
       fontSize: 14,
       color: ColorsManagement.blurBlack);
+  static const TextStyle textBlurBlack20 = TextStyle(
+      fontWeight: FontWeight.w400,
+      fontSize: 20,
+      color: ColorsManagement.blurBlack);
   static const TextStyle textBlurBlack24 = TextStyle(
       fontWeight: FontWeight.w400,
       fontSize: 24,

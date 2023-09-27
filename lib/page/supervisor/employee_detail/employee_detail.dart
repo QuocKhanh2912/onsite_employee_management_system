@@ -114,7 +114,7 @@ class _EmployeeDetailPageState extends State<EmployeeDetailPage> {
                       SizedBox(
                         width: 31,
                       ),
-                      ChartCustom(percent: 5, title: 'Absent'),
+                      ChartCustom(percent: 50, title: 'Absent'),
                       SizedBox(
                         width: 31,
                       ),

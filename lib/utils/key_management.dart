@@ -3,4 +3,6 @@ class KeyManagement{
   static const String timeCheckInKey = 'timeCheckIn';
   static const String timeCheckOutKey = 'timeCheckOut';
   static const String timeWorkingKey = 'timeWorking';
+  static const String latitudeKey = 'latitude';
+  static const String longitudeKey = 'longitude';
 }

@@ -1,5 +1,3 @@
-import 'package:flutter/foundation.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -16,6 +14,7 @@ import 'package:onsite_employee_management_system/utils/assets_management.dart';
 import 'package:onsite_employee_management_system/utils/colors_management.dart';
 import 'package:onsite_employee_management_system/utils/text_style_management.dart';
 
+import 'component/google_map_custom.dart';
 import 'component/show_time_widget.dart';
 
 class HomePage extends StatefulWidget {
@@ -27,12 +26,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   late GoogleMapController mapController;
-
-  final LatLng _center = const LatLng(13.746519, 107.854663);
-
-  void onMapCreated(GoogleMapController controller) {
-    mapController = controller;
-  }
 
   String timeCheckIn = '--:--';
   String timeCheckOut = '--:--';
@@ -172,28 +165,19 @@ class _HomePageState extends State<HomePage> {
                           ),
                           SizedBox(
                               height: 233,
-                              child: GoogleMap(gestureRecognizers: {
-                                Factory<OneSequenceGestureRecognizer>(() => EagerGestureRecognizer())
-                              },
-                                markers: {
-                                  Marker(
-                                      markerId: const MarkerId('1'),
-                                      position: const LatLng(13.746519, 107.854663),
-                                      infoWindow: const InfoWindow(
-                                          title:
-                                              'Drag and hold this to location!'),
-                                      icon:
-                                          BitmapDescriptor.defaultMarkerWithHue(
-                                        BitmapDescriptor.hueRed,
-                                      ),
-                                      draggable: true)
+                              child: BlocBuilder<HomeBloc, HomeState>(
+                                builder: (context, state) {
+                                  if (state is GetInfoHomeSuccess) {
+                                    var currentPosition = state.currentPosition;
+                                    var logoForMap = state.logoForMap;
+                                    return GoogleMapCustom(
+                                      currentPosition: currentPosition,
+                                      logoForMap: logoForMap,
+                                    );
+                                  }
+                                  return const Center(
+                                      child: CircularProgressIndicator());
                                 },
-                                scrollGesturesEnabled: true,
-                                onCameraMove: (position) {
-                                },
-                                onMapCreated: onMapCreated,
-                                initialCameraPosition:
-                                    CameraPosition(target: _center, zoom: 15.0),
                               )),
                           const SizedBox(
                             height: 21,

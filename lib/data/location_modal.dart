@@ -22,25 +22,25 @@ class LocationModal {
       locationId: 01,
       locationName: 'CCH',
       locationAdd: 'Segun Bagicha Rd, Dhaka 1000',
-      locationLatLng: const LatLng(14.746569, 107.854658));
+      locationLatLng: const LatLng(13.741894, 107.854329));
   static LocationModal bdbl = LocationModal(
       locationId: 01,
       locationName: 'BDBL',
       locationAdd:
           'PLOT NO.2, HOTEL KP INN, AIRPORT ROAD, Ajni Square, Samarth Nagar East',
-      locationLatLng: const LatLng(15.746569, 107.854658));
+      locationLatLng: const LatLng(13.747065, 107.862842));
   static LocationModal pksf = LocationModal(
       locationId: 01,
       locationName: 'PKSF',
       locationAdd:
           '001, Ground Floor, Himalaya Harmony Apartments, Near, Aath Rasta Chowk',
-      locationLatLng: const LatLng(16.746569, 107.854658));
+      locationLatLng: const LatLng(13.756027, 107.857907));
   static LocationModal bb = LocationModal(
       locationId: 01,
       locationName: 'BB',
       locationAdd:
           'PLOT NO.2, HOTEL KP INN, AIRPORT ROAD, Ajni Square, Samarth Nagar East',
-      locationLatLng: const LatLng(17.746569, 107.854658));
+      locationLatLng: const LatLng(13.742514, 107.866466));
   static LocationModal scb = LocationModal(
       locationId: 01,
       locationName: 'SCB',

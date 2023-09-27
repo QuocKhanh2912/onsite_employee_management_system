@@ -52,4 +52,5 @@ class GeolocationService {
         startLatitude, startLongitude, endLatitude, endLongitude);
     return distance;
   }
+
 }

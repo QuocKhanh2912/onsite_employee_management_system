@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:onsite_employee_management_system/routes/route_named.dart';
 import 'package:onsite_employee_management_system/service/geolocation/determine_position.dart';
+import 'package:onsite_employee_management_system/service/local/local_service.dart';
 import 'package:onsite_employee_management_system/utils/assets_management.dart';
 import 'package:onsite_employee_management_system/utils/colors_management.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'bloc/splash_bloc.dart';
 
 class SplashPage extends StatefulWidget {
@@ -29,6 +31,8 @@ class _SplashPageState extends State<SplashPage> with TickerProviderStateMixin {
     linearController
         .forward()
         .then((value) => GeolocationService.determinePosition())
+        .then((value) =>
+            LocalService.saveCurrentPosition(value.latitude, value.longitude))
         .then((value) => _splashBloc.add(SplashLoadingEvent()));
     super.initState();
   }
