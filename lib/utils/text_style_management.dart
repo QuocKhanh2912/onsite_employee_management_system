@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'colors_management.dart';
 
 class TextStyleManagement {
+  static const TextStyle textNormalWhite12 = TextStyle(
+      fontWeight: FontWeight.w400, fontSize: 12, color: ColorsManagement.white);
   static const TextStyle textNormalWhite14 = TextStyle(
       fontWeight: FontWeight.w400, fontSize: 14, color: ColorsManagement.white);
   static const TextStyle textNormalWhite16 = TextStyle(
@@ -43,8 +45,12 @@ class TextStyleManagement {
       fontWeight: FontWeight.w400, fontSize: 26, color: ColorsManagement.black);
   static const TextStyle textNormalBlack28 = TextStyle(
       fontWeight: FontWeight.w400, fontSize: 28, color: ColorsManagement.black);
+  static const TextStyle textBoldBlack12 = TextStyle(
+      fontWeight: FontWeight.w600, fontSize: 12, color: ColorsManagement.black);
   static const TextStyle textBoldBlack44 = TextStyle(
       fontWeight: FontWeight.w700, fontSize: 44, color: ColorsManagement.black);
+  static const TextStyle textBoldBlack18 = TextStyle(
+      fontWeight: FontWeight.w600, fontSize: 18, color: ColorsManagement.black);
   static const TextStyle textBoldBlack20 = TextStyle(
       fontWeight: FontWeight.w600, fontSize: 20, color: ColorsManagement.black);
   static const TextStyle textBoldBlack21 = TextStyle(

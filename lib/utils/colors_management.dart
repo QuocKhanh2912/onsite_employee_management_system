@@ -13,4 +13,9 @@ class ColorsManagement {
   static const Color blurGray = Color(0x67000000);
   static const Color pink = Color(0xFFFFA599);
   static const Color purple = Color(0xFFC699FF);
+  static const Color darkRed = Color(0xFF9E0404);
+  static const Color grey = Color(0x66000000);
+  static const Color yellow = Color(0xFFFFDC59);
+  static const Color blurWhite = Color(0xFFDEDEDE);
+
 }

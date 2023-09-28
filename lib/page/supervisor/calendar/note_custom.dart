@@ -80,7 +80,7 @@ class NoteCustom extends StatelessWidget {
               SizedBox(
                   height: 26,
                   child: ItemNoteCustom(
-                    dotColor: ColorsManagement.red,
+                    dotColor: ColorsManagement.darkRed,
                     noteName: 'Late & Early',
                   )),
             ],

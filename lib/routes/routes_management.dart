@@ -9,7 +9,7 @@ import 'package:onsite_employee_management_system/page/role_selection/role_selec
 import 'package:onsite_employee_management_system/page/set_location/set_location.dart';
 import 'package:onsite_employee_management_system/page/splash/splash.dart';
 import 'package:onsite_employee_management_system/page/supervisor/attendance/attendance.dart';
-import 'package:onsite_employee_management_system/page/supervisor/calendar/calendar.dart';
+import 'package:onsite_employee_management_system/page/supervisor/calendar/calendar_page.dart';
 import 'package:onsite_employee_management_system/page/supervisor/early_leaver/early_leaver.dart';
 import 'package:onsite_employee_management_system/page/supervisor/employee_detail/employee_detail.dart';
 import 'package:onsite_employee_management_system/page/supervisor/employee_list/employee_list.dart';

@@ -17,35 +17,35 @@ class LocationModal {
       locationName: 'NBR',
       locationAdd:
           'Block C, 24/A Tajmahal Road (Ring Road, Near Shia Mosque, Dhaka 1207',
-      locationLatLng: const LatLng(13.746569, 107.854658));
+      locationLatLng: const LatLng(10.844338002312611, 106.65944803435889));
   static LocationModal cch = LocationModal(
       locationId: 01,
       locationName: 'CCH',
       locationAdd: 'Segun Bagicha Rd, Dhaka 1000',
-      locationLatLng: const LatLng(13.741894, 107.854329));
+      locationLatLng: const LatLng(10.842987121301423, 106.66208254593019));
   static LocationModal bdbl = LocationModal(
       locationId: 01,
       locationName: 'BDBL',
       locationAdd:
           'PLOT NO.2, HOTEL KP INN, AIRPORT ROAD, Ajni Square, Samarth Nagar East',
-      locationLatLng: const LatLng(13.747065, 107.862842));
+      locationLatLng: const LatLng(10.84282355939936, 106.65724426288591));
   static LocationModal pksf = LocationModal(
       locationId: 01,
       locationName: 'PKSF',
       locationAdd:
           '001, Ground Floor, Himalaya Harmony Apartments, Near, Aath Rasta Chowk',
-      locationLatLng: const LatLng(13.756027, 107.857907));
+      locationLatLng: const LatLng(10.84108463269815, 106.6590849140443));
   static LocationModal bb = LocationModal(
       locationId: 01,
       locationName: 'BB',
       locationAdd:
           'PLOT NO.2, HOTEL KP INN, AIRPORT ROAD, Ajni Square, Samarth Nagar East',
-      locationLatLng: const LatLng(13.742514, 107.866466));
+      locationLatLng: const LatLng(10.844209528382867, 106.65700760774774));
   static LocationModal scb = LocationModal(
       locationId: 01,
       locationName: 'SCB',
       locationAdd: '2, Shreehari nagar, No1, Manewada - Besa Rd, Nagpur',
-      locationLatLng: const LatLng(17.746569, 107.854658));
+      locationLatLng: const LatLng(10.847762102810634, 106.66451589991291));
   static LocationModal beza = LocationModal(
       locationId: 01,
       locationName: 'BEZA',
