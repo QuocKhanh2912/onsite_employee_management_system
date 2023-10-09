@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:onsite_employee_management_system/component/drawer/supervisor_drawer.dart';
-import 'package:onsite_employee_management_system/data/user_modal.dart';
+import 'package:onsite_employee_management_system/data/mock_data_user_modal.dart';
 import 'package:onsite_employee_management_system/utils/colors_management.dart';
 import 'package:onsite_employee_management_system/utils/text_style_management.dart';
 
@@ -36,7 +36,7 @@ class _EmployeeListState extends State<EmployeeList> {
                 text: 'Total Employees: ',
                 style: TextStyleManagement.textNormalBlack20),
             TextSpan(
-                text: UserModal.userMockData.length.toString(),
+                text: MockDataUserModal.userMockData.length.toString(),
                 style: TextStyleManagement.textNormalGreen20),
           ])),
           const SizedBox(height: 13),
@@ -72,8 +72,8 @@ class _EmployeeListState extends State<EmployeeList> {
                 color: ColorsManagement.transparent,
               ),
               itemBuilder: (context, index) => EmployeeItemListView(
-                  index: index, listUser: UserModal.userMockData),
-              itemCount: UserModal.userMockData.length,
+                  index: index, listUser: MockDataUserModal.userMockData),
+              itemCount: MockDataUserModal.userMockData.length,
             ),
           )
         ],

@@ -112,4 +112,166 @@ class DialogCustom {
       ),
     );
   }
+
+  static Dialog emailPasswordIncorrectDialog(BuildContext context) {
+    return Dialog(
+      child: Container(
+          width: 331,
+          height: 200,
+          decoration: BoxDecoration(
+              color: ColorsManagement.white,
+              borderRadius: BorderRadius.circular(5)),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const Text('Email Or Password Is Incorrect',
+                  textAlign: TextAlign.center,
+                  style: TextStyleManagement.textNormalBlack24),
+              const SizedBox(
+                height: 30,
+              ),
+              NormalButtonCustom(
+                onPress: () => context.pop(),
+                buttonName: 'Back',
+                heightButton: 36,
+                widthButton: 152,
+                textNameStyle: TextStyleManagement.textNormalWhite16,
+                colorBackGroundButton: ColorsManagement.green,
+                colorOutlineButton: ColorsManagement.blurBlack,
+              ),
+            ],
+          )),
+    );
+  }
+
+  static Dialog checkInUnSuccessDialog(BuildContext context) {
+    return Dialog(
+      child: Container(
+          width: 331,
+          height: 200,
+          decoration: BoxDecoration(
+              color: ColorsManagement.white,
+              borderRadius: BorderRadius.circular(5)),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const Text('Check In UnSuccess, Please Check again',
+                  textAlign: TextAlign.center,
+                  style: TextStyleManagement.textNormalBlack24),
+              const SizedBox(
+                height: 30,
+              ),
+              NormalButtonCustom(
+                onPress: () => context.pop(),
+                buttonName: 'Back',
+                heightButton: 36,
+                widthButton: 152,
+                textNameStyle: TextStyleManagement.textNormalWhite16,
+                colorBackGroundButton: ColorsManagement.green,
+                colorOutlineButton: ColorsManagement.blurBlack,
+              ),
+            ],
+          )),
+    );
+  }
+
+  static Dialog checkInFirstWarningDialog(BuildContext context) {
+    return Dialog(
+
+      child: Container(
+          width: 331,
+          height: 200,
+          decoration: BoxDecoration(
+              color: ColorsManagement.white,
+              borderRadius: BorderRadius.circular(5)),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const Text('Check Out UnSuccess, Please Check First',
+                  textAlign: TextAlign.center,
+                  style: TextStyleManagement.textNormalBlack24),
+              const SizedBox(
+                height: 30,
+              ),
+              NormalButtonCustom(
+                onPress: () => context.pop(),
+                buttonName: 'Back',
+                heightButton: 36,
+                widthButton: 152,
+                textNameStyle: TextStyleManagement.textNormalWhite16,
+                colorBackGroundButton: ColorsManagement.green,
+                colorOutlineButton: ColorsManagement.blurBlack,
+              ),
+            ],
+          )),
+    );
+  }
+
+  static Dialog checkOutUnSuccessDialog(BuildContext context) {
+    return Dialog(
+      child: Container(
+          width: 331,
+          height: 200,
+          decoration: BoxDecoration(
+              color: ColorsManagement.white,
+              borderRadius: BorderRadius.circular(5)),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const Text('Check Out UnSuccess, Please Check First',
+                  textAlign: TextAlign.center,
+                  style: TextStyleManagement.textNormalBlack24),
+              const SizedBox(
+                height: 30,
+              ),
+              NormalButtonCustom(
+                onPress: () => context.pop(),
+                buttonName: 'Back',
+                heightButton: 36,
+                widthButton: 152,
+                textNameStyle: TextStyleManagement.textNormalWhite16,
+                colorBackGroundButton: ColorsManagement.green,
+                colorOutlineButton: ColorsManagement.blurBlack,
+              ),
+            ],
+          )),
+    );
+  }
+
+  static Dialog somethingWrongDialog(BuildContext context) {
+    return Dialog(
+      child: Container(
+          width: 331,
+          height: 200,
+          decoration: BoxDecoration(
+              color: ColorsManagement.white,
+              borderRadius: BorderRadius.circular(5)),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const Text('Opp!!! Something Wrong!!!',
+                  textAlign: TextAlign.center,
+                  style: TextStyleManagement.textNormalBlack24),
+              const SizedBox(
+                height: 30,
+              ),
+              NormalButtonCustom(
+                onPress: () => context.pop(),
+                buttonName: 'Back',
+                heightButton: 36,
+                widthButton: 152,
+                textNameStyle: TextStyleManagement.textNormalWhite16,
+                colorBackGroundButton: ColorsManagement.green,
+                colorOutlineButton: ColorsManagement.blurBlack,
+              ),
+            ],
+          )),
+    );
+  }
+
 }

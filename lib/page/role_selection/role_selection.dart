@@ -26,61 +26,65 @@ class _RoleSelectionPageState extends State<RoleSelectionPage> {
             context.pushNamed(RouteNamed.landingPage);
           }
         },
-        child: Column(children: [
-          const SizedBox(
-            height: 64,
-          ),
-          Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 26),
-              child: Image.asset(AssetsManagement.roleSelection)),
-          const SizedBox(
-            height: 50,
-          ),
-          Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 58),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  InkWell(
-                    onTap: () {
-                      context.read<CiCoBloc>().add(CheckInYetEvent());
-                    },
-                    child: Stack(
-                      children: [
-                        Image.asset(AssetsManagement.employeeIcon),
-                        Container(
-                            margin: const EdgeInsets.only(left: 15, top: 60),
-                            child: const Text(
-                              'Employee',
-                              style: TextStyleManagement.textNormalWhite14,
-                            ))
-                      ],
+        child: SingleChildScrollView(
+          child: Column(children: [
+            const SizedBox(
+              height: 64,
+            ),
+            Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 26),
+                child: Image.asset(AssetsManagement.roleSelection)),
+            const SizedBox(
+              height: 50,
+            ),
+            Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 58),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        context.read<CiCoBloc>().add(CheckInYetEvent());
+                      },
+                      child: Stack(
+                        children: [
+                          Image.asset(AssetsManagement.employeeIcon),
+                          Container(
+                              margin: const EdgeInsets.only(left: 15, top: 60),
+                              child: const Text(
+                                'Employee',
+                                style: TextStyleManagement.textNormalWhite14,
+                              ))
+                        ],
+                      ),
                     ),
-                  ),
-                  const SizedBox(
-                    width: 43,
-                  ),
-                  InkWell(
-                    onTap: () => context.pushNamed(RouteNamed.attendancePage),
-                    child: Stack(
-                      children: [
-                        Image.asset(AssetsManagement.supervisorIcon),
-                        Container(
-                            margin: const EdgeInsets.only(left: 12, top: 60),
-                            child: const Text(
-                              'Supervisor',
-                              style: TextStyleManagement.textNormalWhite14,
-                            ))
-                      ],
+                    const SizedBox(
+                      width: 43,
                     ),
-                  ),
-                ],
-              )),
-          Expanded(
-              child: Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Image.asset(AssetsManagement.smallLogo))),
-        ]),
+                    InkWell(
+                      onTap: () => context.pushNamed(RouteNamed.attendancePage),
+                      child: Stack(
+                        children: [
+                          Image.asset(AssetsManagement.supervisorIcon),
+                          Container(
+                              margin: const EdgeInsets.only(left: 12, top: 60),
+                              child: const Text(
+                                'Supervisor',
+                                style: TextStyleManagement.textNormalWhite14,
+                              ))
+                        ],
+                      ),
+                    ),
+                  ],
+                )),
+            const SizedBox(
+              height: 100,
+            ),
+            Align(
+                alignment: Alignment.bottomCenter,
+                child: Image.asset(AssetsManagement.smallLogo)),
+          ]),
+        ),
       ),
     );
   }

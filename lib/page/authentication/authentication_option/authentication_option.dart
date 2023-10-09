@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:onsite_employee_management_system/component/button/normal_button_custom.dart';
+import 'package:onsite_employee_management_system/domain/authentication.dart';
 import 'package:onsite_employee_management_system/routes/route_named.dart';
 import 'package:onsite_employee_management_system/utils/assets_management.dart';
 import 'package:onsite_employee_management_system/utils/colors_management.dart';
@@ -58,7 +59,8 @@ class _AuthenticationOptionPageState extends State<AuthenticationOptionPage> {
                       'Forgot Password?',
                       style: TextStyleManagement.textNormalBlack15,
                     ),
-                  )
+                  ),
+
                 ],
               ),
             ]),

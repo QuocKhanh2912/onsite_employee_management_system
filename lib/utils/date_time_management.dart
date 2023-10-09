@@ -57,4 +57,9 @@ class DateTimeManagement {
     final workingMinutes = parsedTime.minute;
     return workingMinutes + workingHours * 60 < 480;
   }
+  static String changeDataTimeFormat({required String time}){
+    final dateTime = DateTime.parse(time);
+    final timeFormat =DateFormat('h:mm a');
+    return timeFormat.format(dateTime);
+  }
 }

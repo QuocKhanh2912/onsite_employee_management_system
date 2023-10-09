@@ -84,17 +84,6 @@ class _HomePageState extends State<HomePage> {
                   }
                 },
               ),
-              BlocListener<CiCoBloc, CiCoState>(
-                listener: (context, state) {
-                  if (state is CheckInSuccessButOutSideState) {
-                    showDialog(
-                      context: context,
-                      builder: (context) => DialogCustom.dialogOutsideReason(
-                          context, outSideDescriptionController),
-                    );
-                  }
-                },
-              ),
             ],
             child: WillPopScope(
               onWillPop: () async => false,

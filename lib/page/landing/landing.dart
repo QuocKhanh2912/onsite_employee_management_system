@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:onsite_employee_management_system/component/dialog/dialog_custom.dart';
 import 'package:onsite_employee_management_system/component/drawer/employee_drawer.dart';
 import 'package:onsite_employee_management_system/component/show_current_time/show_current_time.dart';
 import 'package:onsite_employee_management_system/routes/route_named.dart';
@@ -29,18 +30,33 @@ class _LandingPageState extends State<LandingPage> {
       endDrawer: const EmployeeDrawerCustom(),
       body: BlocListener<CiCoBloc, CiCoState>(
         listener: (context, state) {
-          if (state is CheckInSuccessState ||
-              state is CheckOutSuccessState ||
-              state is CheckInSuccessButOutSideState ||
-              state is CheckOutSuccessButOutSideState) {
+          if (state is CheckInSuccessState || state is CheckOutSuccessState) {
             context.pushNamed(RouteNamed.homePage);
-          }
-          if (state is CheckedInState) {
+          } else if (state is FarFromLocationState) {
+            showDialog(
+              context: context,
+              builder: (context) =>
+                  DialogCustom.dialogToChangeLocation(context),
+            );
+          } else if (state is CheckInUnSuccessState) {
+            showDialog(
+                context: context,
+                builder: (context) =>
+                    DialogCustom.checkInUnSuccessDialog(context));
+          } else if (state is CheckOutUnSuccessState) {
+            showDialog(
+                context: context,
+                builder: (context) =>
+                    DialogCustom.checkOutUnSuccessDialog(context));
+          } else if (state is CheckedInState) {
             context.read<CiCoBloc>().add(CheckOutEvent());
-          }
-          if (state is NotCheckedInState) {
-            ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Please check in first')));
+          } else if (state is NotCheckedInState) {
+            showDialog(
+                context: context,
+                builder: (context) {
+                  print('okokokok');
+                  return DialogCustom.checkInFirstWarningDialog(context);
+                });
           }
         },
         child: SafeArea(
@@ -70,6 +86,16 @@ class _LandingPageState extends State<LandingPage> {
                   Builder(builder: (context) {
                     return BlocBuilder<CiCoBloc, CiCoState>(
                       builder: (context, state) {
+                        if (state is CheckInLoadingState) {
+                          return const Row(
+                            children: [
+                              SizedBox(
+                                width: 60,
+                              ),
+                              CircularProgressIndicator(),
+                            ],
+                          );
+                        }
                         return InkWell(
                           onTap: () {
                             context.read<CiCoBloc>().add(CheckInEvent());
@@ -86,6 +112,17 @@ class _LandingPageState extends State<LandingPage> {
                   Builder(builder: (context) {
                     return BlocBuilder<CiCoBloc, CiCoState>(
                       builder: (context, state) {
+                        if (state is CheckOutLoadingState ||
+                            state is IsCheckInLoadingState) {
+                          return const Row(
+                            children: [
+                              CircularProgressIndicator(),
+                              SizedBox(
+                                width: 60,
+                              ),
+                            ],
+                          );
+                        }
                         return InkWell(
                           onTap: () {
                             context.read<CiCoBloc>().add(CheckInYetEvent());

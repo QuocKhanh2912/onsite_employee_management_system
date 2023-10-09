@@ -7,3 +7,7 @@ class CheckInEvent extends CiCoEvent {}
 class CheckOutEvent extends CiCoEvent {}
 class CheckInYetEvent extends CiCoEvent {}
 class CheckOutYetEvent extends CiCoEvent {}
+
+
+
+

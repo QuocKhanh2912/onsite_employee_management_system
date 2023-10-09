@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:onsite_employee_management_system/component/drawer/supervisor_drawer.dart';
 import 'package:onsite_employee_management_system/data/item_list_drop_down.dart';
-import 'package:onsite_employee_management_system/data/user_modal.dart';
+import 'package:onsite_employee_management_system/data/mock_data_user_modal.dart';
 import 'package:onsite_employee_management_system/page/supervisor/employee_detail/component/chart_custom.dart';
 import 'package:onsite_employee_management_system/routes/route_named.dart';
 import 'package:onsite_employee_management_system/utils/assets_management.dart';
@@ -14,7 +14,7 @@ import 'component/leave_request_custom.dart';
 
 class EmployeeDetailPage extends StatefulWidget {
   const EmployeeDetailPage({super.key,required this.userInfo});
-  final UserModal userInfo;
+  final MockDataUserModal userInfo;
 
   @override
   State<EmployeeDetailPage> createState() => _EmployeeDetailPageState();

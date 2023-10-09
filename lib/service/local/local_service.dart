@@ -77,7 +77,6 @@ class LocalService {
     prefs.setDouble(KeyManagement.latitudeKey, latitude);
     prefs.setDouble(KeyManagement.longitudeKey, longitude);
   }
-
   static Future<LatLng> getCurrentPosition() async {
     var prefs = await SharedPreferences.getInstance();
     return LatLng(prefs.getDouble(KeyManagement.latitudeKey) ?? 0,

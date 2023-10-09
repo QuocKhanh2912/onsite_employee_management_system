@@ -5,4 +5,5 @@ class KeyManagement{
   static const String timeWorkingKey = 'timeWorking';
   static const String latitudeKey = 'latitude';
   static const String longitudeKey = 'longitude';
+  static const String tokenKey = 'token';
 }

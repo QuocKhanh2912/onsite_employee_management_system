@@ -1,7 +1,7 @@
-import 'package:onsite_employee_management_system/data/user_modal.dart';
+import 'package:onsite_employee_management_system/data/mock_data_user_modal.dart';
 
 class LateComerModal {
-  UserModal lateComer;
+  MockDataUserModal lateComer;
   String? timeIn;
   String? lateBy;
 

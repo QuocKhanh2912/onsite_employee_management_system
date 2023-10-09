@@ -1,5 +1,5 @@
 import 'package:go_router/go_router.dart';
-import 'package:onsite_employee_management_system/data/user_modal.dart';
+import 'package:onsite_employee_management_system/data/mock_data_user_modal.dart';
 import 'package:onsite_employee_management_system/page/authentication/Sign_in/sign_in.dart';
 import 'package:onsite_employee_management_system/page/authentication/authentication_option/authentication_option.dart';
 import 'package:onsite_employee_management_system/page/authentication/profile/profile.dart';
@@ -19,7 +19,7 @@ import 'package:onsite_employee_management_system/routes/route_named.dart';
 import '../page/authentication/sign_up/sign_up.dart';
 
 class RoutesManagement {
-  static final routes = GoRouter(initialLocation: '/', routes: [
+  static final routes = GoRouter(initialLocation: '/${RouteNamed.signInPage}', routes: [
     GoRoute(
         name: RouteNamed.splashPage,
         path: '/',
@@ -90,7 +90,7 @@ class RoutesManagement {
             path: RouteNamed.employeeDetailPage,
             builder: (context, state) {
               var user = state.extra as Map<String, dynamic>? ?? {};
-               return EmployeeDetailPage(userInfo: user['user'] as UserModal);}
+               return EmployeeDetailPage(userInfo: user['user'] as MockDataUserModal);}
           ),
           GoRoute(
             name: RouteNamed.calendarPage,

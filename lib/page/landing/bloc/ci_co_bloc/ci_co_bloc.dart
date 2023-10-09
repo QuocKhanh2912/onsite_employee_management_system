@@ -1,4 +1,5 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:onsite_employee_management_system/domain/authentication.dart';
 import 'package:onsite_employee_management_system/service/geolocation/determine_position.dart';
 import 'package:onsite_employee_management_system/service/local/local_service.dart';
 import 'package:onsite_employee_management_system/utils/date_time_management.dart';
@@ -15,28 +16,38 @@ class CiCoBloc extends Bloc<CiCoEvent, CiCoState> {
   }
 
   _checkInYetEvent(CheckInYetEvent event, Emitter<CiCoState> emit) async {
-    var timeCheckIn = await LocalService.getTimeCheckIn();
-    if (timeCheckIn == '--:--' || timeCheckIn.isEmpty) {
-      emit(NotCheckedInState());
-    } else {
-      emit(CheckedInState());
+    emit(IsCheckInLoadingState());
+    try {
+      var isCheckIn = await AuthService.isCheckIn();
+      if (isCheckIn) {
+        emit(CheckedInState());
+      } else {
+        emit(NotCheckedInState());
+      }
+    } catch (e) {
+      emit(SomethingWrongState());
     }
   }
 
   _checkInEvent(CheckInEvent event, Emitter<CiCoState> emit) async {
+    emit(CheckInLoadingState());
     try {
       var currentLocation = await LocalService.getCurrentLocation();
       var locationLatLng = currentLocation.locationLatLng;
       var distance = await GeolocationService.determineDistance(
           locationLatLng: locationLatLng);
       if (distance <= 100) {
-        await LocalService.saveTimeCheckIn(
-            time: DateTimeManagement.getCurrentTime());
-        emit(CheckInSuccessState(
-            timeCheckIn: DateTimeManagement.getCurrentTime()));
+        var userInfo = await AuthService.checkInActivity();
+        if (userInfo != null) {
+          var time = userInfo.checkedInAt.toString();
+          var checkInAt = DateTimeManagement.changeDataTimeFormat(time: time);
+          await LocalService.saveTimeCheckIn(time: checkInAt);
+          emit(CheckInSuccessState(checkInAt: checkInAt));
+        } else {
+          emit(CheckInUnSuccessState());
+        }
       } else {
-        emit(CheckInSuccessButOutSideState(
-            timeCheckIn: DateTimeManagement.getCurrentTime()));
+        emit(FarFromLocationState());
       }
     } catch (e) {
       emit(CheckInUnSuccessState());
@@ -44,19 +55,24 @@ class CiCoBloc extends Bloc<CiCoEvent, CiCoState> {
   }
 
   _checkOutEvent(CheckOutEvent event, Emitter<CiCoState> emit) async {
+    emit(CheckOutLoadingState());
     try {
       var currentLocation = await LocalService.getCurrentLocation();
       var locationLatLng = currentLocation.locationLatLng;
       var distance = await GeolocationService.determineDistance(
           locationLatLng: locationLatLng);
       if (distance <= 100) {
-        await LocalService.saveTimeCheckOutAndWorking(
-            time: DateTimeManagement.getCurrentTime());
-        emit(CheckOutSuccessState(
-            timeCheckOut: DateTimeManagement.getCurrentTime()));
+        var userInfo = await AuthService.checkOutActivity();
+        if (userInfo != null) {
+          var time = userInfo.checkedOutAt.toString();
+          var checkOutAt = DateTimeManagement.changeDataTimeFormat(time: time);
+          await LocalService.saveTimeCheckOutAndWorking(time: checkOutAt);
+          emit(CheckOutSuccessState(checkOutAt: checkOutAt));
+        } else {
+          emit(CheckOutUnSuccessState());
+        }
       } else {
-        emit(CheckOutSuccessButOutSideState(
-            timeCheckOut: DateTimeManagement.getCurrentTime()));
+        emit(FarFromLocationState());
       }
     } catch (e) {
       emit(CheckOutUnSuccessState());
