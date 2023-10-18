@@ -24,6 +24,7 @@ class _RoleSelectionPageState extends State<RoleSelectionPage> {
           }
           if (state is NotCheckedInState) {
             context.pushNamed(RouteNamed.landingPage);
+            
           }
         },
         child: SingleChildScrollView(

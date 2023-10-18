@@ -22,6 +22,7 @@ class CiCoBloc extends Bloc<CiCoEvent, CiCoState> {
       if (isCheckIn) {
         emit(CheckedInState());
       } else {
+        print('asdasdsadsa');
         emit(NotCheckedInState());
       }
     } catch (e) {

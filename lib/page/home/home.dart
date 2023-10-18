@@ -7,7 +7,6 @@ import 'package:onsite_employee_management_system/component/drawer/employee_draw
 import 'package:onsite_employee_management_system/component/show_current_time/show_current_time.dart';
 import 'package:onsite_employee_management_system/data/location_modal.dart';
 import 'package:onsite_employee_management_system/page/home/bloc/home_bloc.dart';
-import 'package:onsite_employee_management_system/page/landing/bloc/ci_co_bloc/ci_co_bloc.dart';
 import 'package:onsite_employee_management_system/page/set_location/bloc/set_location_bloc.dart';
 import 'package:onsite_employee_management_system/routes/route_named.dart';
 import 'package:onsite_employee_management_system/utils/assets_management.dart';
@@ -33,7 +32,6 @@ class _HomePageState extends State<HomePage> {
   TextEditingController outSideDescriptionController = TextEditingController();
   LocationModal currentLocation = LocationModal.nbr;
   final HomeBloc _homeBloc = HomeBloc();
-  final CiCoBloc _ciCoBloc = CiCoBloc();
   final SetLocationBloc _setLocationBloc = SetLocationBloc();
 
   @override
@@ -51,7 +49,6 @@ class _HomePageState extends State<HomePage> {
           value: _homeBloc,
         ),
         BlocProvider.value(value: _setLocationBloc),
-        BlocProvider.value(value: _ciCoBloc)
       ],
       child: Scaffold(
           appBar: AppBar(
